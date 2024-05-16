@@ -11,7 +11,7 @@ namespace Domain.Entities.Input
         public string DescricaoProduto { get; set; }
         public decimal ValorProduto { get; set; }
         public int QuantidadeProduto { get; set; }
-        public EnumCategoria? NomeCategoria { get; set; }
+        public int IdCategoria { get; set; }
      
    
 
@@ -45,10 +45,10 @@ namespace Domain.Entities.Input
                 );
             }
 
-            if (!NomeCategoria.HasValue)
+            if (IdCategoria <= 0)
             {
                 yield return new ValidationResult(
-                    "O nome da categoria é obrigatório.",
+                    "O id da categoria é obrigatório.",
                     new[] { nameof(PedidoStatus) }
                 );
             }

@@ -76,7 +76,7 @@ namespace Api.Controllers
          Tags = new[] { "Pedidos" }
      )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PostCliente([FromBody] Pedidos filtro)
+        public async Task<IActionResult> PostCliente([FromBody] PostPedidos filtro)
         {
             return Ok();
         }

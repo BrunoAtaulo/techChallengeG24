@@ -3,7 +3,7 @@ using System;
 
 namespace Domain.Entities.Output
 {
-    public class Pedido 
+    public class Pedido
     {
         public int IdCliente { get; set; }
 
@@ -18,6 +18,8 @@ namespace Domain.Entities.Output
         public EnumPedidoPagamento? PedidoPagamento { get; set; }
 
         public DateTime DataPedido { get; set; }
-       
+        
+        public decimal ValorTotal { get; set; }
+
     }
 }

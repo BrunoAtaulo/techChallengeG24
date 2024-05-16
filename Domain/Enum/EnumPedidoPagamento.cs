@@ -11,6 +11,6 @@ namespace Domain.Base
         Aprovado = 2,
 
         [Description("3 - Cancelado")]
-        Cancelado = 3,
+        Cancelado = 3
     }
 }

@@ -5,7 +5,7 @@ namespace Domain.Entities.Input
 {
     public class Combo : IValidatableObject
     {
-        public List<Produto> ProdutoPedido { get; set; } = new List<Produto>();
+        public List<ProdutoPedido> ProdutoPedido { get; set; } = new List<ProdutoPedido>();
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

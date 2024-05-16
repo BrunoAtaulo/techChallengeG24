@@ -92,7 +92,7 @@ namespace Api.Controllers
         [SwaggerResponse(500, "Servidor encontrou uma condição inesperada!")]
         [HttpPatch("{idPedido}")]
         [SwaggerOperation(
-        Summary = "Endpoint para atualização de um pedido.",
+        Summary = "Endpoint para atualização do status de um pedido.",
         Description = @"Endpoint atualizar o pedido.</br></br>
                             <b>Parâmetros de entrada:</b></br></br>
                              &bull; <b>idPedido</b>:  Id do pedido que irá ser atualizado. &rArr; <font color='red'><b>Obrigatório</b></font><br>

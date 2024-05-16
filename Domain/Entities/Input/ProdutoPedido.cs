@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities.Input
 {
-    public class Produto : IValidatableObject
+    public class ProdutoPedido : IValidatableObject
     {
         public int IdProduto { get; set; }
         public int QuantidadeProduto { get; set; }

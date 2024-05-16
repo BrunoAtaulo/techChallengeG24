@@ -53,16 +53,16 @@ namespace Api.Controllers
         [SwaggerResponse(404, "O recurso solicitado não existe!")]
         [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa!")]
         [SwaggerResponse(500, "Servidor encontrou uma condição inesperada!")]
-        [HttpDelete("{IdProduto}")]
+        [HttpDelete("{idProduto}")]
         [SwaggerOperation(
            Summary = "Endpoint para deletar produto do sistema pelo id.",
            Description = @"Endpoint para deletar um determinado produto.</br></br>
                             <b>Parâmetros de entrada:</b></br></br>
-                             &bull; <b>idCliente</b>:  Identificador único do produto. &rArr; <font color='red'><b>Obrigatório</b></font>",
+                             &bull; <b>idProduto</b>:  Identificador único do produto. &rArr; <font color='red'><b>Obrigatório</b></font>",
            Tags = new[] { "Produtos" }
        )]
         [Consumes("application/json")]
-        public async Task<IActionResult> DeleteProdutos([FromRoute] ClientesByCpf filtro)
+        public async Task<IActionResult> DeleteProdutos([FromRoute] ProdutosById filtro)
         {
             return Ok();
         }

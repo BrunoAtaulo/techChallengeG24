@@ -20,7 +20,7 @@ namespace Api.Controllers
         [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
         [HttpGet("")]
         [SwaggerOperation(
-            Summary = "Busca todos os produtos realizados.",
+            Summary = "Busca todos os produtos.",
             Description = @"Endpoint para retornar os produtos que foram cadastrados no sistema. A busca pode ser feita pelos filtros abaixo:</br></br>
                             <b>Parâmetros de entrada:</b></br></br>
                             &bull; <b>idProduto</b>:  Id do produto. &rArr; <font color='green'><b>Opcional</b></font><br>
@@ -31,7 +31,7 @@ namespace Api.Controllers
                              <strong> 1 = </strong> Lanche<br/>
                              <strong> 2 = </strong> Acompanhamento<br/>
                              <strong> 3 = </strong>  Bebida<br/>
-                             <strong> 4 = </strong> Sobremesa  
+                             <strong> 4 = </strong> Sobremesa
                         
                         
 ",
@@ -45,6 +45,28 @@ namespace Api.Controllers
         }
         #endregion
 
+   #region DELETE/produtos/{IdProduto}
+        [SwaggerResponse(200, "Deletado com sucesso!")]
+        [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
+        [SwaggerResponse(401, "Requisição requer autenticação do usuário!")]
+        [SwaggerResponse(403, "Privilégios insuficientes!")]
+        [SwaggerResponse(404, "O recurso solicitado não existe!")]
+        [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa!")]
+        [SwaggerResponse(500, "Servidor encontrou uma condição inesperada!")]
+        [HttpDelete("{IdProduto}")]
+        [SwaggerOperation(
+           Summary = "Endpoint para deletar produto do sistema pelo id.",
+           Description = @"Endpoint para deletar um determinado produto.</br></br>
+                            <b>Parâmetros de entrada:</b></br></br>
+                             &bull; <b>idCliente</b>:  Identificador único do produto. &rArr; <font color='red'><b>Obrigatório</b></font>",
+           Tags = new[] { "Produtos" }
+       )]
+        [Consumes("application/json")]
+        public async Task<IActionResult> DeleteProdutos([FromRoute] ClientesByCpf filtro)
+        {
+            return Ok();
+        }
+        #endregion
 
 
     }

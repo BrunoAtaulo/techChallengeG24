@@ -127,7 +127,7 @@ namespace Api.Controllers
        Description = @"Endpoint para cadastrar um fake checkout.</br></br>
                             <b>Parâmetros de entrada:</b></br></br>
                              &bull; <b>idPedido</b>:  Id do pedido. &rArr; <font color='red'><b>Obrigatório</b></font><br>
-                         &bull; <b>nomeProduto</b>: Produto selecionado podendo ser lanche, bebidas, sobremesas, combo. &rArr; <font color='red'><b>Obrigatório</b></font><br>
+                         &bull; <b>IdProduto</b>: Id do Produto selecionado podendo ser lanche, bebidas, sobremesas, combo. &rArr; <font color='red'><b>Obrigatório</b></font><br>
                          &bull; <b>quantidade</b>: Quantidade do produto. &rArr; <font color='red'><b>Obrigatório</b></font><br>
                          &bull; <b>valorUnitario</b>: Valor de cada produto selecionado. &rArr; <font color='red'><b>Obrigatório</b></font><br>
                         &bull; <b>nomeCliente</b>: Nome do cliente. &rArr; <font color='green'><b>Opcional</b></font><br>

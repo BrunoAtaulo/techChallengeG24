@@ -113,5 +113,37 @@ namespace Api.Controllers
         }
         #endregion
 
+        #region Post/checkoutPedidos
+        [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.")]
+        [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
+        [SwaggerResponse(401, "Requisição requer autenticação do usuário!")]
+        [SwaggerResponse(403, "Privilégios insuficientes!")]
+        [SwaggerResponse(404, "O recurso solicitado não existe!")]
+        [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa!")]
+        [SwaggerResponse(500, "Servidor encontrou uma condição inesperada!")]
+        [HttpPost("/checkoutPedidos")]
+        [SwaggerOperation(
+       Summary = "Endpoint para criação de um fake checkout do pedido.",
+       Description = @"Endpoint para cadastrar um fake checkout.</br></br>
+                            <b>Parâmetros de entrada:</b></br></br>
+                             &bull; <b>idPedido</b>:  Id do pedido. &rArr; <font color='red'><b>Obrigatório</b></font><br>
+                         &bull; <b>nomeProduto</b>: Produto selecionado podendo ser lanche, bebidas, sobremesas, combo. &rArr; <font color='red'><b>Obrigatório</b></font><br>
+                         &bull; <b>quantidade</b>: Quantidade do produto. &rArr; <font color='red'><b>Obrigatório</b></font><br>
+                         &bull; <b>valorUnitario</b>: Valor de cada produto selecionado. &rArr; <font color='red'><b>Obrigatório</b></font><br>
+                        &bull; <b>nomeCliente</b>: Nome do cliente. &rArr; <font color='green'><b>Opcional</b></font><br>
+
+",
+       Tags = new[] { "Pedidos" }
+   )]
+        [Consumes("application/json")]
+        public async Task<IActionResult> PostCheckoutPedido([FromBody] Checkouts filtro)
+        {
+            return Ok();
+        }
+
+
+        #endregion
+
+
     }
 }

@@ -6,10 +6,10 @@ namespace Domain.Entities.Input
     public class Checkouts : IValidatableObject
     {
         public int IdPedido { get; set; }
-        public string NomeProduto { get; set; }
+        public int IdProduto { get; set; }
 
         public int Quantidade { get; set; }
-
+       
         public decimal ValorUnitario { get; set; }
 
         public string NomeCliente { get; set; }
@@ -26,10 +26,15 @@ namespace Domain.Entities.Input
             }
 
 
-            if (string.IsNullOrWhiteSpace(NomeProduto))
+            if (IdProduto <= 0)
             {
-                yield return new ValidationResult("Nome do produto é obrigatório", new string[] { "NomeProduto" });
+                yield return new ValidationResult(
+                    "O Id do produto é obrigatório.",
+                    new[] { nameof(IdProduto) }
+                );
             }
+
+
 
             if (Quantidade <= 0)
             {

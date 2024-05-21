@@ -3,8 +3,10 @@ using Application.ViewModel.Request;
 using Application.ViewModel.Response;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static Application.Services.ClienteService;
 
 namespace Api.Controllers
 {
@@ -35,15 +37,27 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> GetCliente([FromRoute] ClienteByCpfRequest filtro)
         {
-           
-            var rtn = await _clienteService.GetClienteByCpf(filtro);
-            if (rtn == null)
+
+            try
             {
-                return NoContent();
+                var rtn = await _clienteService.GetClienteByCpf(filtro);
+                if (rtn == null)
+                {
+                    return NoContent();
+                }
+
+                return Ok(rtn);
+            }
+            catch (CustomValidationException ex)
+            {
+                var errorResponse = ex.Error;
+                return StatusCode(412, errorResponse);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado.");
             }
 
-            return Ok(rtn);
-        
         }
 
     
@@ -74,13 +88,25 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> PostCliente([FromBody] ClienteRequest filtro)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            var rtn = await _clienteService.PostClientes(filtro);
-            return CreatedAtAction(nameof(PostCliente), new { id = rtn.IdCliente }, rtn);
+                var rtn = await _clienteService.PostClientes(filtro);
+                return CreatedAtAction(nameof(PostCliente), new { id = rtn.IdCliente }, rtn);
+            }
+            catch (CustomValidationException ex)
+            {
+                var errorResponse = ex.Error;
+                return StatusCode(412, errorResponse);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado.");
+            }
         }
 
         #endregion
@@ -104,15 +130,23 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> DeleteCliente([FromRoute] ClienteByCpfRequest filtro)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                await _clienteService.DeleteClienteByCpf(filtro);
+                return Ok("Deletado com sucesso!");
             }
+            catch (CustomValidationException ex)
+            {
+                var errorResponse = ex.Error;
+                return StatusCode(412, errorResponse);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado.");
+            }
+        
 
-            await _clienteService.DeleteClienteByCpf(filtro);
-            return Ok("Deletado com sucesso!");
-
-        }
+    }
         #endregion
 
         #region PATCH/clientes
@@ -140,14 +174,26 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> PatchCliente([FromRoute] ClienteByCpfRequest cpf, [FromBody] PatchClienteRequest filtro)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            await _clienteService.UpdateClienteByCpf(new ClienteByCpfRequest { CpfCliente = cpf.CpfCliente }, filtro);
-            
-            return Ok("Dados do cliente atualizados com sucesso.");
+                await _clienteService.UpdateClienteByCpf(new ClienteByCpfRequest { CpfCliente = cpf.CpfCliente }, filtro);
+
+                return Ok("Dados do cliente atualizados com sucesso.");
+            }
+            catch (CustomValidationException ex)
+            {
+                var errorResponse = ex.Error;
+                return StatusCode(412, errorResponse);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado.");
+            }
         }
 
         #endregion

@@ -107,11 +107,7 @@ namespace Application.Services
                     ListaErros = new List<ResultError>()
                 };
 
-                errorResponse.ListaErros.Add(new ResultError
-                {
-                    MensagemErro = "Cliente não encontrado",
-                    CampoErro = "cpfCliente"
-                });
+               
 
                 throw new CustomValidationException(errorResponse);
             }

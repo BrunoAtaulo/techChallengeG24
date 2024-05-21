@@ -1,35 +1,46 @@
-﻿using System;
+﻿using Domain.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities
 {
     public class Cliente
     {
+        public Cliente(string cpf, string nome, string sobreNome, string email, string nomeSocial)
+        {
+            Cpf = cpf;
+            Nome = nome;
+            SobreNome = sobreNome;
+            Email = email;
+            NomeSocial = nomeSocial;
+            DataCadastro = DateTime.Now;
+            ValidateEntity();
+        }
+
         [Key]
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
-        public string Cpf { get; set; }
-        public string Nome { get; set; }
+        public string Cpf { get; private set; }
+        public string Nome { get; private set; }
 
-        public string SobreNome { get; set; }
+        public string SobreNome {  get; private set; }
 
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
-        public string NomeSocial { get; set; }
+        public string NomeSocial { get; private set; }
 
-        public DateTime DataCadastro { get; set; }
+        public DateTime DataCadastro { get; private set; }
 
 
         #region Validations
-        public void Validate()
-        {
-            ValidaNome();
-        }
 
-        private void ValidaNome()
+
+        public void ValidateEntity()
         {
-            if (string.IsNullOrWhiteSpace(Nome))
-                throw new Exception("por favor, informe o nome.");
+            AssertionConcern.AssertArgumentNotEmpty(Cpf, "O nome não pode estar vazio!");
+            
+            AssertionConcern.AssertArgumentNotEmpty(Nome, "O nome não pode estar vazio!");
+            AssertionConcern.AssertArgumentNotEmpty(Email, "O email não pode estar vazio!");
 
         }
         #endregion

@@ -1,10 +1,11 @@
 ﻿using Domain.Entities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
     public interface IClienteRepository
     {
-        IList<Cliente> GetClientes();
+        Task<IList<Cliente>> GetClientes();
     }
 }

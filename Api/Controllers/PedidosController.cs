@@ -1,6 +1,6 @@
-﻿using Domain.Entities.Input;
-using Domain.Entities.Output;
-using Domain.Entities.Validator;
+﻿using Application.ViewModel.Output;
+using Application.ViewModel.Request;
+using Domain.Entities.Input;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
@@ -136,7 +136,7 @@ namespace Api.Controllers
        Tags = new[] { "Pedidos" }
    )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PostCheckoutPedido([FromBody] Checkouts filtro)
+        public async Task<IActionResult> PostCheckoutPedido([FromBody] CheckoutRequest filtro)
         {
             return Ok();
         }

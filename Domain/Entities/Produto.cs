@@ -1,13 +1,18 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
     public class Produto
     {
         [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public ProdutoCategoria Categoria { get; set; }
+        public int CategoriaId { get; set; }
+        [ForeignKey("CategoriaId")]
+
+        public virtual ProdutoCategoria Categoria { get; set; }
 
         public string Nome { get; set; }
 

@@ -1,6 +1,6 @@
+using Application.ViewModel.Output;
+using Application.ViewModel.Request;
 using Domain.Entities.Input;
-using Domain.Entities.Output;
-using Domain.Entities.Validator;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
@@ -15,9 +15,9 @@ namespace Api.Controllers
 
 
         #region [GET/clientes/{cpfCliente}]
-        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(Cliente))]
+        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(Application.ViewModel.Output.Cliente))]
         [SwaggerResponse(204, "Requisição concluída, porém não há dados de retorno!")]
-        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<Cliente>))]
+        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<Application.ViewModel.Output.Cliente>))]
         [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
         [HttpGet("{cpfCliente}")]
         [SwaggerOperation(
@@ -28,7 +28,7 @@ namespace Api.Controllers
             Tags = new[] { "Clientes" }
         )]
         [Consumes("application/json")]
-        public async Task<IActionResult> GetCliente([FromRoute] ClientesByCpf filtro)
+        public async Task<IActionResult> GetCliente([FromRoute] ClienteByCpf filtro)
         {
 
             return Ok();
@@ -58,7 +58,7 @@ namespace Api.Controllers
          Tags = new[] { "Clientes" }
      )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PostCliente([FromBody] Clientes filtro)
+        public async Task<IActionResult> PostCliente([FromBody]   Application.ViewModel.Request.ClienteRequest filtro)
         {
             return Ok();
         }
@@ -82,7 +82,7 @@ namespace Api.Controllers
            Tags = new[] { "Clientes" }
        )]
         [Consumes("application/json")]
-        public async Task<IActionResult> DeleteCliente([FromRoute] ClientesByCpf filtro)
+        public async Task<IActionResult> DeleteCliente([FromRoute] ClienteByCpf filtro)
         {
             return Ok();
         }
@@ -111,7 +111,7 @@ namespace Api.Controllers
       Tags = new[] { "Clientes" }
   )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PatchCliente([FromRoute] ClientesByCpf idCliente, [FromBody] PatchClientes filtro)
+        public async Task<IActionResult> PatchCliente([FromRoute] ClienteByCpf idCliente, [FromBody] PatchCliente filtro)
         {
             return Ok();
         }

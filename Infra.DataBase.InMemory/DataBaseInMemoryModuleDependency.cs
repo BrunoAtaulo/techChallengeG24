@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Domain.Repositories;
+using Infra.DataBase.InMemory.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Infra.DataBase.InMemory
 {
@@ -6,7 +8,8 @@ namespace Infra.DataBase.InMemory
     {
         public static void AddDataBaseInMemoryModule(this IServiceCollection services)
         {
-            
+
+            services.AddScoped<IClienteRepository, ClientesRepository>();
         }
     }
 }

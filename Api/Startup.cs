@@ -56,6 +56,8 @@ namespace Api
                     connectionsString,
                     sqlServerOptions => sqlServerOptions.EnableRetryOnFailure());
             });
+
+
         }
 
 

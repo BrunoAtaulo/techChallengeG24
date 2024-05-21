@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Application.ViewModel.Output
+namespace Application.ViewModel.Response
 {
     public class ErrorValidacao
     {

@@ -1,23 +1,22 @@
-using Domain.Base;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class PostProdutos : IValidatableObject
+    public class PostProdutoRequest : IValidatableObject
     {
-  
+
         public string NomeProduto { get; set; }
         public string DescricaoProduto { get; set; }
         public decimal ValorProduto { get; set; }
         public int QuantidadeProduto { get; set; }
         public int IdCategoria { get; set; }
-     
-   
+
+
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-           
+
             if (string.IsNullOrWhiteSpace(NomeProduto))
             {
                 yield return new ValidationResult("Nome do produto é obrigatório", new string[] { "NomeProduto" });
@@ -49,7 +48,7 @@ namespace Domain.Entities.Input
             {
                 yield return new ValidationResult(
                     "O id da categoria é obrigatório.",
-                    new[] { nameof(PedidoStatus) }
+                    new[] { nameof(IdCategoria) }
                 );
             }
 

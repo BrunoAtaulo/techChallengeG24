@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class ProdutosById : IValidatableObject
+    public class ProdutoByIdRequest : IValidatableObject
     {
         public int IdProduto { get; set; }
 

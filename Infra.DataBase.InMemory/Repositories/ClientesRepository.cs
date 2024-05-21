@@ -1,9 +1,7 @@
 ﻿using Domain.Entities;
-using Domain.Repositories;
+using Domain.Interfaces;
 using Infra.Context;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Infra.DataBase.InMemory.Repositories
@@ -19,10 +17,15 @@ namespace Infra.DataBase.InMemory.Repositories
         }
 
 
-
-        public async Task<IList<Cliente>> GetClientes()
+        public async Task PostCliente(Cliente cliente)
         {
-            return await _dbContext.Clientes.Where(x => x.Id != 0).ToListAsync();
+            await _dbContext.Clientes.AddAsync(cliente);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<Cliente>GetCliente(string cpfCliente)
+        {
+            return await _dbContext.Clientes.FirstOrDefaultAsync(c => c.Cpf == cpfCliente);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Domain.Entities
         public string Cpf { get; private set; }
         public string Nome { get; private set; }
 
-        public string SobreNome {  get; private set; }
+        public string SobreNome { get; private set; }
 
         public string Email { get; private set; }
 
@@ -38,7 +38,7 @@ namespace Domain.Entities
         public void ValidateEntity()
         {
             AssertionConcern.AssertArgumentNotEmpty(Cpf, "O nome não pode estar vazio!");
-            
+
             AssertionConcern.AssertArgumentNotEmpty(Nome, "O nome não pode estar vazio!");
             AssertionConcern.AssertArgumentNotEmpty(Email, "O email não pode estar vazio!");
 

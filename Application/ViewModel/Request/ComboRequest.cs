@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class Combo : IValidatableObject
+    public class ComboRequest : IValidatableObject
     {
-        public List<ProdutoPedido> ProdutoPedido { get; set; } = new List<ProdutoPedido>();
+        public List<ProdutoPedidoRequest> ProdutoPedido { get; set; } = new List<ProdutoPedidoRequest>();
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

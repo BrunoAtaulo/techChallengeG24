@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class PostPedidos : IValidatableObject
+    public class PostPedidoRequest : IValidatableObject
     {
         public int IdCliente { get; set; }
 
@@ -13,7 +13,7 @@ namespace Domain.Entities.Input
 
         public EnumPedidoStatus? PedidoStatus { get; set; }
 
-        public List<Combo> ComboPedido { get; set; }
+        public List<ComboRequest> ComboPedido { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
@@ -26,7 +26,7 @@ namespace Domain.Entities.Input
                 );
             }
 
-          
+
             if (!PedidoStatus.HasValue)
             {
                 yield return new ValidationResult(
@@ -35,7 +35,7 @@ namespace Domain.Entities.Input
                 );
             }
 
-           
+
             if (DataPedido == default)
             {
                 yield return new ValidationResult(

@@ -1,4 +1,6 @@
-﻿using Domain.Repositories;
+﻿using Application.Interfaces;
+using Application.Services;
+using Domain.Interfaces;
 using Infra.DataBase.InMemory.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +12,7 @@ namespace Infra.DataBase.InMemory
         {
 
             services.AddScoped<IClienteRepository, ClientesRepository>();
+            services.AddScoped<IClienteService, ClienteService>();
         }
     }
 }

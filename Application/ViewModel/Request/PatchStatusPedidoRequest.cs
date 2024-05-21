@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class PatchStatusPedido : IValidatableObject
+    public class PatchStatusPedidoRequest : IValidatableObject
     {
 
         public EnumPedidoStatus? PedidoStatus { get; set; }

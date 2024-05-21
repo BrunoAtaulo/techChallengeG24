@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class ProdutoPedido : IValidatableObject
+    public class ProdutoPedidoRequest : IValidatableObject
     {
         public int IdProduto { get; set; }
         public int QuantidadeProduto { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-           
+
             if (IdProduto <= 0)
             {
                 yield return new ValidationResult(
@@ -19,7 +19,7 @@ namespace Domain.Entities.Input
                 );
             }
 
-           
+
             if (QuantidadeProduto <= 0)
             {
                 yield return new ValidationResult(

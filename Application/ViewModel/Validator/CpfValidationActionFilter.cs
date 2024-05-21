@@ -1,4 +1,4 @@
-﻿using Application.ViewModel.Output;
+﻿using Application.ViewModel.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;

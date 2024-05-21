@@ -1,6 +1,5 @@
-using Application.ViewModel.Output;
 using Application.ViewModel.Request;
-using Domain.Entities.Input;
+using Application.ViewModel.Response;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
@@ -14,9 +13,9 @@ namespace Api.Controllers
     {
 
         #region [GET/produtos]
-        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(Produto))]
+        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(ProdutoResponse))]
         [SwaggerResponse(204, "Requisição concluída, porém não há dados de retorno!")]
-        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<Produto>))]
+        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<ProdutoResponse>))]
         [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
         [HttpGet("")]
         [SwaggerOperation(
@@ -38,7 +37,7 @@ namespace Api.Controllers
             Tags = new[] { "Produtos" }
         )]
         [Consumes("application/json")]
-        public async Task<IActionResult> GetProdutos([FromQuery] Produtos filtro)
+        public async Task<IActionResult> GetProdutos([FromQuery] ProdutoRequest filtro)
         {
 
             return Ok();
@@ -62,16 +61,16 @@ namespace Api.Controllers
            Tags = new[] { "Produtos" }
        )]
         [Consumes("application/json")]
-        public async Task<IActionResult> DeleteProdutos([FromRoute] ProdutosById filtro)
+        public async Task<IActionResult> DeleteProdutos([FromRoute] ProdutoByIdRequest filtro)
         {
             return Ok();
         }
         #endregion
 
         #region GET/categorias/{idCategoria}
-        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(Application.ViewModel.Output.Categoria))]
+        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(CategoriaResponse))]
         [SwaggerResponse(204, "Requisição concluída, porém não há dados de retorno!")]
-        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<Application.ViewModel.Output.Categoria>))]
+        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<CategoriaResponse>))]
         [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
         [HttpGet("/categorias/{idCategoria}/produtos")]
         [SwaggerOperation(
@@ -88,7 +87,7 @@ namespace Api.Controllers
         Tags = new[] { "Produtos" }
     )]
         [Consumes("application/json")]
-        public async Task<IActionResult> GetCategoriaProduto([FromRoute]  CategoriaByIdRequest filtro)
+        public async Task<IActionResult> GetCategoriaProduto([FromRoute] CategoriaByIdRequest filtro)
         {
 
             return Ok();
@@ -96,7 +95,7 @@ namespace Api.Controllers
         #endregion
 
         #region POST/produtos
-        [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.", typeof(ProdutoById))]
+        [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.", typeof(ProdutoByIdResponse))]
         [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
         [SwaggerResponse(401, "Requisição requer autenticação do usuário!")]
         [SwaggerResponse(403, "Privilégios insuficientes!")]
@@ -121,7 +120,7 @@ namespace Api.Controllers
        Tags = new[] { "Produtos" }
    )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PostCliente([FromBody] PostProdutos filtro)
+        public async Task<IActionResult> PostCliente([FromBody] PostProdutoRequest filtro)
         {
             return Ok();
         }
@@ -154,7 +153,7 @@ namespace Api.Controllers
    Tags = new[] { "Produtos" }
 )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PatchCliente([FromRoute] ProdutoById idProduto, [FromBody] PatchProduto filtro)
+        public async Task<IActionResult> PatchCliente([FromRoute] ProdutoByIdRequest idProduto, [FromBody] PatchProdutoRequest filtro)
         {
             return Ok();
         }

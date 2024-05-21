@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Infra.Context
 {
@@ -31,8 +30,8 @@ namespace Infra.Context
 
 
 
-      //  protected override void OnConfiguring(DbContextOptionsBuilder options)
-      //=> options.UseSqlServer("Server=localhost,1433;Database=FiapDB;User Id=SA;Password=Pa55w0rd2021;MultipleActiveResultSets=true");
+        //  protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //=> options.UseSqlServer("Server=localhost,1433;Database=FiapDB;User Id=SA;Password=Pa55w0rd2021;MultipleActiveResultSets=true");
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             base.ConfigureConventions(configurationBuilder);
@@ -48,7 +47,7 @@ namespace Infra.Context
 
 
 
-}
+    }
 
 
 

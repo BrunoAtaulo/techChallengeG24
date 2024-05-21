@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Application.ViewModel.Request
 {
     public class CategoriaByIdRequest : IValidatableObject
-    { 
+    {
         public int IdCategoria { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

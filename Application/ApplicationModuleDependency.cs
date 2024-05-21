@@ -1,6 +1,4 @@
-﻿using Application.Interfaces;
-using Application.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
 {
@@ -8,7 +6,7 @@ namespace Application
     {
         public static void AddApplicationModule(this IServiceCollection services)
         {
-            services.AddTransient<IClientesService, ClienteService>();
+           // services.AddTransient<IClientesService, ClienteService>();
         }
     }
 }

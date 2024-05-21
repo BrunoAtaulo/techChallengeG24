@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Application.ViewModel.Output
+namespace Application.ViewModel.Response
 {
-    public class Cliente
+    public class ClienteResponse
     {
         public int IdCliente { get; set; }
         public string CpfCliente { get; set; }

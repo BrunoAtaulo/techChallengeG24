@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class PatchCliente
+    public class PatchClienteRequest
     {
         [EmailAddress(ErrorMessage = "Email inválido")]
         public string EmailCliente { get; set; }

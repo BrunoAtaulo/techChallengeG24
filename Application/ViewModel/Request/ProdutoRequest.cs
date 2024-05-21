@@ -1,10 +1,10 @@
+using Domain.Base;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Domain.Base;
 
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class Produtos : IValidatableObject
+    public class ProdutoRequest : IValidatableObject
     {
         public int IdProduto { get; set; }
         public string NomeProduto { get; set; }

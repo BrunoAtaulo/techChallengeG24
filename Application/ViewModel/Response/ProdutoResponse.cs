@@ -1,9 +1,9 @@
-using System;
 using Domain.Base;
+using System;
 
-namespace Application.ViewModel.Output
+namespace Application.ViewModel.Response
 {
-    public class Produto
+    public class ProdutoResponse
     {
         public int IdProduto { get; set; }
         public string NomeProduto { get; set; }

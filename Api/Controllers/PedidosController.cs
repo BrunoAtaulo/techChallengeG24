@@ -1,6 +1,5 @@
-﻿using Application.ViewModel.Output;
-using Application.ViewModel.Request;
-using Domain.Entities.Input;
+﻿using Application.ViewModel.Request;
+using Application.ViewModel.Response;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
@@ -14,9 +13,9 @@ namespace Api.Controllers
     {
 
         #region [GET/pedidos]
-        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(Pedido))]
+        [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(PedidoResponse))]
         [SwaggerResponse(204, "Requisição concluída, porém não há dados de retorno!")]
-        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<Pedido>))]
+        [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<PedidoResponse>))]
         [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
         [HttpGet("")]
         [SwaggerOperation(
@@ -39,16 +38,15 @@ namespace Api.Controllers
             Tags = new[] { "Pedidos" }
         )]
         [Consumes("application/json")]
-        public async Task<IActionResult> GetPedidos([FromQuery]Pedidos filtro)
+        public async Task<IActionResult> GetPedidos([FromQuery] PedidoRequest filtro)
         {
 
             return Ok();
         }
         #endregion
 
-
         #region POST/pedidos
-        [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.", typeof(PedidoById))]
+        [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.", typeof(PedidoByIdResponse))]
         [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
         [SwaggerResponse(401, "Requisição requer autenticação do usuário!")]
         [SwaggerResponse(403, "Privilégios insuficientes!")]
@@ -76,7 +74,7 @@ namespace Api.Controllers
          Tags = new[] { "Pedidos" }
      )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PostCliente([FromBody] PostPedidos filtro)
+        public async Task<IActionResult> PostCliente([FromBody] PostPedidoRequest filtro)
         {
             return Ok();
         }
@@ -107,7 +105,7 @@ namespace Api.Controllers
         Tags = new[] { "Pedidos" }
     )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PatchPedido([FromRoute] int idPedido, [FromQuery] PatchStatusPedido filtro)
+        public async Task<IActionResult> PatchPedido([FromRoute] int idPedido, [FromQuery] PatchStatusPedidoRequest filtro)
         {
             return Ok();
         }

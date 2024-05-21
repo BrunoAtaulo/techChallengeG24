@@ -1,16 +1,14 @@
-using Domain.Base;
-
-namespace Domain.Entities.Input
+namespace Application.ViewModel.Request
 {
-    public class PatchProduto
+    public class PatchProdutoRequest
     {
-  
+
         public string NomeProduto { get; set; }
         public string DescricaoProduto { get; set; }
         public decimal ValorProduto { get; set; }
         public int QuantidadeProduto { get; set; }
         public int IdCategoria { get; set; }
-     
+
 
     }
 }

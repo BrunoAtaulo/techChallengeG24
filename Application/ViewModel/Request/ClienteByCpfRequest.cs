@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Application.ViewModel.Request
 {
-    public class ClienteByCpf : IValidatableObject
+    public class ClienteByCpfRequest : IValidatableObject
     {
+
         [Cpf]
         public string CpfCliente { get; set; }
 

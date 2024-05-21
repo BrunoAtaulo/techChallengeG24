@@ -94,7 +94,34 @@ namespace Application.Services
         }
 
 
+        public async Task DeleteClienteByCpf(ClienteByCpfRequest cpfCliente)
+        {
+           
+            var cliente = await _clienteRepository.GetCliente(cpfCliente.CpfCliente);
 
+            if (cliente == null)
+            {
+                var errorResponse = new ErrorValidacao
+                {
+                    MensagemErro = "Cliente não encontrado",
+                    ListaErros = new List<ResultError>()
+                };
+
+                errorResponse.ListaErros.Add(new ResultError
+                {
+                    MensagemErro = "Cliente não encontrado",
+                    CampoErro = "cpfCliente"
+                });
+
+                throw new CustomValidationException(errorResponse);
+            }
+
+
+            await _clienteRepository.DeleteCliente(cliente);
+        }
+
+
+        #region CustomValidator
         public class CustomValidationException : Exception
         {
             public ErrorValidacao Error { get; }
@@ -104,6 +131,7 @@ namespace Application.Services
                 Error = error;
             }
         }
+        #endregion
 
-        }
+    }
 }

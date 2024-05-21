@@ -11,5 +11,7 @@ namespace Application.Interfaces
 
         Task UpdateClienteByCpf(ClienteByCpfRequest cpfCliente, PatchClienteRequest filtro);
 
+        Task DeleteClienteByCpf(ClienteByCpfRequest cpfCliente);
+
     }
 }

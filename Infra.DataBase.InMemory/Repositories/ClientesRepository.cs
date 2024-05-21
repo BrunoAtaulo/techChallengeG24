@@ -33,5 +33,11 @@ namespace Infra.DataBase.InMemory.Repositories
             _dbContext.Clientes.Update(cliente);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task DeleteCliente(Cliente cliente)
+        {
+            _dbContext.Clientes.Remove(cliente);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

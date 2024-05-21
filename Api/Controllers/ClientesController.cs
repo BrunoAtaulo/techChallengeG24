@@ -87,7 +87,7 @@ namespace Api.Controllers
 
         #region DELETE/clientes/{cpfCliente}
         [SwaggerResponse(200, "Deletado com sucesso!")]
-        [SwaggerResponse(400, "A solicitacao não pode ser entendida pelo servidor devido a sintaxe malformada!")]
+        [SwaggerResponse(400, "A solicitacao nao pode ser entendida pelo servidor devido a sintaxe malformada!")]
         [SwaggerResponse(401, "Requisicao requer autenticacao do usuario!")]
         [SwaggerResponse(403, "Privilegios insuficientes!")]
         [SwaggerResponse(404, "O recurso solicitado nao existe!")]
@@ -104,7 +104,14 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> DeleteCliente([FromRoute] ClienteByCpfRequest filtro)
         {
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _clienteService.DeleteClienteByCpf(filtro);
+            return Ok("Deletado com sucesso!");
+
         }
         #endregion
 

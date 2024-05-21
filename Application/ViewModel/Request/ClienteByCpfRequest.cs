@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Validator;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,6 +9,7 @@ namespace Application.ViewModel.Request
     {
 
         [Cpf]
+        [FromRoute(Name = "cpfCliente")]
         public string CpfCliente { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

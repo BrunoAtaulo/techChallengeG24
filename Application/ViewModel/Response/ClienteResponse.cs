@@ -10,7 +10,11 @@ namespace Application.ViewModel.Response
         public string SobreNomeCliente { get; set; }
         public string EmailCliente { get; set; }
         public string NomeSocialCliente { get; set; }
-        public DateTime DataCadastroCliente { get; set; }
+        public string DataCadastroCliente { get; set; }
+
+       
+       
+
 
 
     }

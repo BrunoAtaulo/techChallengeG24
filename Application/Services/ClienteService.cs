@@ -47,7 +47,7 @@ namespace Application.Services
                 SobreNomeCliente = cliente.SobreNome,
                 EmailCliente = cliente.Email,
                 NomeSocialCliente = cliente.NomeSocial,
-                DataCadastroCliente = cliente.DataCadastro
+                DataCadastroCliente = cliente.DataCadastro.ToString("dd/MM/yyyy HH:mm:ss") 
             };
         }
 

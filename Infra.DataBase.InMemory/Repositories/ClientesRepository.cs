@@ -27,5 +27,11 @@ namespace Infra.DataBase.InMemory.Repositories
         {
             return await _dbContext.Clientes.FirstOrDefaultAsync(c => c.Cpf == cpfCliente);
         }
+
+        public async Task UpdateCliente(Cliente cliente)
+        {
+            _dbContext.Clientes.Update(cliente);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

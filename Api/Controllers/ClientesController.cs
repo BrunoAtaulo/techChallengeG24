@@ -131,10 +131,18 @@ namespace Api.Controllers
       Tags = new[] { "Clientes" }
   )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PatchCliente([FromRoute] ClienteByCpfRequest idCliente, [FromBody] PatchClienteRequest filtro)
+        public async Task<IActionResult> PatchCliente([FromRoute] ClienteByCpfRequest cpf, [FromBody] PatchClienteRequest filtro)
         {
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _clienteService.UpdateClienteByCpf(new ClienteByCpfRequest { CpfCliente = cpf.CpfCliente }, filtro);
+            
+            return Ok("Dados do cliente atualizados com sucesso.");
         }
+
         #endregion
 
 

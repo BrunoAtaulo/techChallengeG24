@@ -9,5 +9,7 @@ namespace Application.Interfaces
         Task<ClienteResponse> GetClienteByCpf(ClienteByCpfRequest filtro);
         Task<ClienteByIdResponse> PostClientes(ClienteRequest filtro);
 
+        Task UpdateClienteByCpf(ClienteByCpfRequest cpfCliente, PatchClienteRequest filtro);
+
     }
 }

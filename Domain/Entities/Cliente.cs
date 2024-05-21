@@ -18,18 +18,18 @@ namespace Domain.Entities
         }
 
         [Key]
-        public int Id { get; private set; }
+        public int Id { get;  set; }
 
-        public string Cpf { get; private set; }
-        public string Nome { get; private set; }
+        public string Cpf { get;  set; }
+        public string Nome { get;  set; }
 
-        public string SobreNome { get; private set; }
+        public string SobreNome { get;  set; }
 
-        public string Email { get; private set; }
+        public string Email { get;  set; }
 
-        public string NomeSocial { get; private set; }
+        public string NomeSocial { get;  set; }
 
-        public DateTime DataCadastro { get; private set; }
+        public DateTime DataCadastro { get;  set; }
 
 
         #region Validations

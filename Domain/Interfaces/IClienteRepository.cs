@@ -7,5 +7,6 @@ namespace Domain.Interfaces
     {
         Task<Cliente> GetCliente(string cpfCliente);
         Task PostCliente(Cliente cliente);
+        Task UpdateCliente(Cliente cliente);
     }
 }

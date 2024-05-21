@@ -3,6 +3,8 @@ using Application.ViewModel.Request;
 using Application.ViewModel.Response;
 using Domain.Entities;
 using Domain.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Application.Services
@@ -52,5 +54,56 @@ namespace Application.Services
         }
 
 
-    }
+
+        public async Task UpdateClienteByCpf(ClienteByCpfRequest cpfCliente, PatchClienteRequest filtro)
+        {
+            var cliente = await _clienteRepository.GetCliente(cpfCliente.CpfCliente);
+
+            if (cliente == null)
+            {
+                var errorResponse = new ErrorValidacao
+                {
+                    MensagemErro = "Cliente não encontrado",
+                    ListaErros = new List<ResultError>()
+                };
+
+                errorResponse.ListaErros.Add(new ResultError
+                {
+                    MensagemErro = "Cliente não encontrado",
+                    CampoErro = "cpfCliente"
+                });
+
+                throw new CustomValidationException(errorResponse);
+            }
+
+
+            if (!string.IsNullOrWhiteSpace(filtro.EmailCliente) && filtro.EmailCliente != "user@example.com")
+                cliente.Email = filtro.EmailCliente;
+
+            if (!string.IsNullOrWhiteSpace(filtro.NomeCliente) && filtro.NomeCliente != "string")
+                cliente.Nome = filtro.NomeCliente;
+
+            if (!string.IsNullOrWhiteSpace(filtro.SobrenomeCliente) && filtro.SobrenomeCliente != "string")
+                cliente.SobreNome = filtro.SobrenomeCliente;
+
+            if (!string.IsNullOrWhiteSpace(filtro.NomeSocialCliente) && filtro.NomeSocialCliente != "string")
+                cliente.NomeSocial = filtro.NomeSocialCliente;
+
+
+            await _clienteRepository.UpdateCliente(cliente);
+        }
+
+
+
+        public class CustomValidationException : Exception
+        {
+            public ErrorValidacao Error { get; }
+
+            public CustomValidationException(ErrorValidacao error)
+            {
+                Error = error;
+            }
+        }
+
+        }
 }

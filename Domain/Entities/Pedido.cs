@@ -11,8 +11,6 @@ namespace Domain.Entities
         public Cliente? Cliente { get; set; }
         public PedidoStatus PedidoStatus { get; set; }
         public PedidoPagamento PedidoPagamento { get; set; }
-        public string Nome { get; set; }
-        public string SobreNome { get; set; }
         public DateTime DataCadastro { get; set; }
         public List<PedidoProduto> PedidoProdutos { get; set; }
 

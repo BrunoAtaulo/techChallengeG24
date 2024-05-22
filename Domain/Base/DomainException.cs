@@ -23,4 +23,18 @@ namespace Domain.Base
         public DomainException(string message, Exception innerException) : base(message, innerException) { }
     }
 
+    public class CustomValidationException : Exception
+    {
+        public ErrorValidacao Error { get; }
+
+        public CustomValidationException(string message)
+        {
+            Error = new ErrorValidacao();
+            Error.MensagemErro = message;
+        }
+        public CustomValidationException(ErrorValidacao error)
+        {
+            Error = error;
+        }
+    }
 }

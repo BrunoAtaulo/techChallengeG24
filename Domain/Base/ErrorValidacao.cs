@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Application.ViewModel.Response
-{
+namespace Domain.Base
     public class ErrorValidacao
     {
         public string MensagemErro { get; set; }

@@ -4,10 +4,11 @@ namespace Application.ViewModel.Request
     {
 
         public string NomeProduto { get; set; }
-        public string DescricaoProduto { get; set; }
-        public decimal ValorProduto { get; set; }
-        public int QuantidadeProduto { get; set; }
-        public int IdCategoria { get; set; }
+        public decimal? ValorProduto { get; set; }
+        public int? IdCategoria { get; set; }
+
+        public bool?  Ativo {  get; set; }
+        
 
 
     }

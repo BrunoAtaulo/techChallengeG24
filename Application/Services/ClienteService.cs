@@ -117,17 +117,6 @@ namespace Application.Services
         }
 
 
-        #region CustomValidator
-        public class CustomValidationException : Exception
-        {
-            public ErrorValidacao Error { get; }
-
-            public CustomValidationException(ErrorValidacao error)
-            {
-                Error = error;
-            }
-        }
-        #endregion
 
     }
 }

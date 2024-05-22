@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,6 +7,17 @@ namespace Domain.Entities
 {
     public class Produto
     {
+        public Produto( int categoriaId,  string nome, decimal preco, bool status)
+        {
+            
+            CategoriaId = categoriaId;
+            
+            Nome = nome;
+            Preco = preco;
+            Status = status;
+            ValidateEntity();
+        }
+
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -21,26 +33,16 @@ namespace Domain.Entities
         public bool Status { get; set; }
 
 
-        #region Validations
-        public void Validate()
+        public void ValidateEntity()
         {
-            ValidaNome();
-            ValidaPreco();
-        }
+            AssertionConcern.AssertArgumentNotEmpty(Nome, "O nome não pode estar vazio!");
 
-        private void ValidaNome()
-        {
-            if (string.IsNullOrWhiteSpace(Nome))
-                throw new Exception("por favor, informe o nome.");
+            AssertionConcern.AssertArgumentNotNull(Preco, "O Preco não pode estar vazio!");
+
+            AssertionConcern.AssertArgumentNotNull(CategoriaId, "A Categoria não pode estar vazio!");
+
 
         }
-        private void ValidaPreco()
-        {
-            if (string.IsNullOrWhiteSpace(Nome))
-                throw new Exception("por favor, informe um preço.");
-
-        }
-        #endregion
     }
 
 

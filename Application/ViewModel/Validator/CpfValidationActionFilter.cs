@@ -1,4 +1,5 @@
 ﻿using Application.ViewModel.Response;
+using Domain.Base;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;

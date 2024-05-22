@@ -12,6 +12,7 @@ namespace Api.Controllers
     public class ProdutosController : ControllerBase
     {
 
+
         #region [GET/produtos]
         [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(ProdutoResponse))]
         [SwaggerResponse(204, "Requisição concluída, porém não há dados de retorno!")]
@@ -22,16 +23,12 @@ namespace Api.Controllers
             Summary = "Busca todos os produtos.",
             Description = @"Endpoint para retornar os produtos que foram cadastrados no sistema. A busca pode ser feita pelos filtros abaixo:</br></br>
                             <b>Parâmetros de entrada:</b></br></br>
-                            &bull; <b>idProduto</b>:  Id do produto. &rArr; <font color='green'><b>Opcional</b></font><br>
-                             &bull; <b>nomeProduto</b>:  Nome do produto. &rArr; <font color='green'><b>Opcional</b></font><br>
-                             &bull; <b>valorProduto</b>:  Valor do produto. &rArr; <font color='green'><b>Opcional</b></font><br>
                              &bull; <b>idCategoria</b>:  Id da categoria do produto. &rArr; <font color='green'><b>Opcional</b></font><br>
                              &bull; <b>nomeCategoria</b>:  Nome da categoria do produto, escolher 1 item da lista. &rArr; <font color='green'><b>Opcional</b></font><br>
                              <strong> 1 = </strong> Lanche<br/>
                              <strong> 2 = </strong> Acompanhamento<br/>
                              <strong> 3 = </strong>  Bebida<br/>
                              <strong> 4 = </strong> Sobremesa
-                        
                         
 ",
             Tags = new[] { "Produtos" }

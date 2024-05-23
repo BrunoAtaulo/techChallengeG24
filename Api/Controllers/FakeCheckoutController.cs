@@ -69,7 +69,7 @@ namespace Api.Controllers
 
             return CreatedAtAction(nameof(GetFilaDePedidos), null, new { message = "Produtos enviados para a fila com sucesso!" });
         }
-
+        #endregion
         #region Get/fakeCheckout
         [SwaggerResponse(200, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.")]
         [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
@@ -112,3 +112,4 @@ namespace Api.Controllers
         #endregion
     }
 }
+    

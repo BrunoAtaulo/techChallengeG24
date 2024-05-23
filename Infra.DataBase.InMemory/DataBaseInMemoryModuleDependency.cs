@@ -2,6 +2,7 @@
 using Application.Services;
 using Domain.Interfaces;
 using Infra.DataBase.InMemory.Repositories;
+using Infra.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infra.DataBase.InMemory
@@ -13,6 +14,8 @@ namespace Infra.DataBase.InMemory
 
             services.AddScoped<IClienteRepository, ClientesRepository>();
             services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IFakeCheckoutService, FakeCheckoutService>();
+            services.AddScoped<IFakeCheckoutRepository, FakeCheckoutRepository>();
         }
     }
 }

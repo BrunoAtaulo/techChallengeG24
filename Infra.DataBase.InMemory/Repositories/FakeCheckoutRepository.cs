@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Interfaces;
 using Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infra.Repositories
 {
-    public class FakeCheckoutRepository
+    public class FakeCheckoutRepository : IFakeCheckoutRepository
     {
         private readonly FiapDbContext _context;
 

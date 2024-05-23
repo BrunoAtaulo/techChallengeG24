@@ -1,27 +1,24 @@
 ﻿using Application.ViewModel.Request;
 using Domain.Base;
 using Domain.Entities;
-using Infra.Context;
+using Infra.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
-//TODO: VALIDAR E AJUSTAR 
 namespace Api.Controllers
 {
     [ApiController]
     [Route("fakeCheckout/")]
     public class FakeCheckoutController : ControllerBase
     {
-        private readonly FiapDbContext _context;
+        private readonly FakeCheckoutRepository _repository;
 
-        public FakeCheckoutController(FiapDbContext context)
+        public FakeCheckoutController(FakeCheckoutRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         #region POST/clientes
@@ -51,9 +48,10 @@ namespace Api.Controllers
             {
                 return BadRequest(new { error = "A lista de produtos não pode ser nula ou vazia." });
             }
+
             foreach (var item in produtos)
             {
-                var produto = await _context.Produtos.FindAsync(item.IdProduto);
+                var produto = await _repository.FindProdutoByIdAsync(item.IdProduto);
                 if (produto == null)
                 {
                     return NotFound(new { error = $"Produto com Id {item.IdProduto} não encontrado." });
@@ -66,10 +64,8 @@ namespace Api.Controllers
                     NomeCliente = item.NomeCliente
                 };
 
-                _context.Checkout.Add(fakeCheckout);
+                await _repository.AddFakeCheckoutAsync(fakeCheckout);
             }
-
-            await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetFilaDePedidos), null, new { message = "Produtos enviados para a fila com sucesso!" });
         }
@@ -85,16 +81,14 @@ namespace Api.Controllers
         [HttpGet("")]
         [SwaggerOperation(
       Summary = "Endpoint para consultar a lista de produtos escolhidos para a fila.",
-      Description = @"Este endpoint busca todos os produtos que estão na fila de pedidos, sem finalizar o pedido.</br></br> ",                    
+      Description = @"Este endpoint busca todos os produtos que estão na fila de pedidos, sem finalizar o pedido.</br></br> ",
 
       Tags = new[] { "FakeCheckout" }
   )]
         [Consumes("application/json")]
         public async Task<IActionResult> GetFilaDePedidos()
         {
-            var filaDePedidos = await _context.Checkout
-                .Include(fc => fc.Produto)
-                .ToListAsync();
+            var filaDePedidos = await _repository.GetAllFakeCheckoutsAsync();
 
             var filaComTotal = filaDePedidos.Select(item => new
             {
@@ -118,8 +112,3 @@ namespace Api.Controllers
         #endregion
     }
 }
-
-#endregion
-
-
-

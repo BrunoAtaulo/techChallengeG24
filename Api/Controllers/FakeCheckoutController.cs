@@ -18,7 +18,7 @@ namespace Api.Controllers
             _service = service;
         }
 
-        #region POST/clientes
+        #region POST/fakeCheckout
         [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.")]
         [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
         [SwaggerResponse(401, "Requisição requer autenticação do usuário!")]

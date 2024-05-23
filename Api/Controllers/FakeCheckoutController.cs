@@ -39,9 +39,9 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> PostFakeCheckout([FromBody] List<CheckoutRequest> produtos)
         {
-            var result = await _service.ProcessFakeCheckoutAsync(produtos);
+            var result = await _service.CadastroFakeCheckout(produtos);
 
-            if (result.Contains("não encontrado") || result.Contains("nula ou vazia"))
+            if (result.Contains("não encontrado") || result.Contains("nulo ou vazio"))
             {
                 return BadRequest(new { error = result });
             }
@@ -67,7 +67,7 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> GetFilaDePedidos()
         {
-            var filaComTotal = await _service.GetFakeCheckoutsAsync();
+            var filaComTotal = await _service.GetFakeCheckouts();
             return Ok(filaComTotal);
         }
         #endregion

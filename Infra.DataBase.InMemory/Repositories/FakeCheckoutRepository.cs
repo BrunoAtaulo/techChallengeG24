@@ -27,7 +27,7 @@ namespace Infra.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<FakeCheckout>> GetAllFakeCheckoutsAsync()
+        public async Task<List<FakeCheckout>> GetAllFakeCheckouts()
         {
             return await _context.Checkout
                 .Include(fc => fc.Produto)

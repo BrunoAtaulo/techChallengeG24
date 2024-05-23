@@ -9,6 +9,6 @@ namespace Domain.Interfaces
         Task<Produto> FindProdutoByIdAsync(int idProduto);
         Task AddFakeCheckoutAsync(FakeCheckout fakeCheckout);
 
-        Task<List<FakeCheckout>> GetAllFakeCheckoutsAsync();
+        Task<List<FakeCheckout>> GetAllFakeCheckouts();
     }
 }

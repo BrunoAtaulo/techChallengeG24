@@ -18,7 +18,7 @@ namespace Application.Services
             _repository = repository;
         }
 
-        public async Task<string> ProcessFakeCheckoutAsync(List<CheckoutRequest> produtos)
+        public async Task<string> CadastroFakeCheckout(List<CheckoutRequest> produtos)
         {
             if (produtos == null || produtos.Count == 0)
             {
@@ -46,9 +46,9 @@ namespace Application.Services
             return "Produtos enviados para a fila com sucesso!";
         }
 
-        public async Task<IEnumerable<object>> GetFakeCheckoutsAsync()
+        public async Task<IEnumerable<object>> GetFakeCheckouts()
         {
-            var filaDePedidos = await _repository.GetAllFakeCheckoutsAsync();
+            var filaDePedidos = await _repository.GetAllFakeCheckouts();
 
             return filaDePedidos.Select(item => new
             {

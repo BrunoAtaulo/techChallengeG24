@@ -6,7 +6,7 @@ namespace Application.Interfaces
 {
     public interface IFakeCheckoutService
     {
-        Task<string> ProcessFakeCheckoutAsync(List<CheckoutRequest> produtos);
-        Task<IEnumerable<object>> GetFakeCheckoutsAsync();
+        Task<string> CadastroFakeCheckout(List<CheckoutRequest> produtos);
+        Task<IEnumerable<object>> GetFakeCheckouts();
     }
 }

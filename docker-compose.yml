@@ -4,7 +4,7 @@ services:
     api:
         image: ${DOCKER_REGISTRY-}api
         environment:
-            - DATABASE=Data Source=ms-sql-server;Initial Catalog=FiapDB;Encrypt=false;User ID=SA;Password=Pa55w0rd2021;Trusted_Connection=False; TrustServerCertificate=True;
+            - DATABASE=Data Source=ms-sql-server;Initial Catalog=LancheRapidoBD;Encrypt=false;User ID=SA;Password=Pa55w0rd2021;Trusted_Connection=False; TrustServerCertificate=True;
         restart: always
         build:
           context: .

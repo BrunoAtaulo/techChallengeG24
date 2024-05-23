@@ -14,6 +14,7 @@ namespace Domain.Entities
         public PedidoStatus PedidoStatus { get; set; }
         public PedidoPagamento PedidoPagamento { get; set; }
         public DateTime DataCadastro { get; set; }
+        public DateTime? DataAtualizacao { get; set; }
         public List<PedidoProduto> PedidoProdutos { get; set; }
 
 

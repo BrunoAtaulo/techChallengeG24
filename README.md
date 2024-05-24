@@ -13,9 +13,9 @@ API desenvolvida para controle de pedidos de uma lanchonete
 
 
 ## Nome Discord:
-<b>Franciele RM 355456</b>
-<b>Bruno - RM355476</b>
-<b>Cesar P Moroni RM355921</b>
+Franciele RM 355456</br>
+Bruno - RM355476</br>
+Cesar P Moroni RM355921</br>
 
 
 

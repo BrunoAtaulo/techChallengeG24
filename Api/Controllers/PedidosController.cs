@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Api.Controllers
 {
     [ApiController]
-    [System.Web.Mvc.Route("pedidos/")]
+    [Route("pedidos/")]
     public class PedidosController : ControllerBase
     {
         private readonly IPedidoService _pedidoService;

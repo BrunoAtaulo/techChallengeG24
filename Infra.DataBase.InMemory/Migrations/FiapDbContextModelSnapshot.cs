@@ -98,6 +98,31 @@ namespace Infra.Migrations
                     b.ToTable("ComboProdutos");
                 });
 
+            modelBuilder.Entity("Domain.Entities.FakeCheckout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomeCliente")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("Checkout");
+                });
+
             modelBuilder.Entity("Domain.Entities.Pedido", b =>
                 {
                     b.Property<int>("Id")
@@ -109,30 +134,21 @@ namespace Infra.Migrations
                     b.Property<int?>("ClienteId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DataCadastro")
+                    b.Property<DateTime?>("DataAtualizacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Nome")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                    b.Property<DateTime>("DataPedido")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int?>("PedidoPagamentoId")
+                    b.Property<int>("PedidoPagamentoId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PedidoStatusId")
+                    b.Property<int>("PedidoStatusId")
                         .HasColumnType("int");
-
-                    b.Property<string>("SobreNome")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("PedidoPagamentoId");
-
-                    b.HasIndex("PedidoStatusId");
 
                     b.ToTable("Pedidos");
                 });
@@ -217,6 +233,9 @@ namespace Infra.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<int?>("PedidoId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Preco")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
@@ -227,6 +246,8 @@ namespace Infra.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
+
+                    b.HasIndex("PedidoId");
 
                     b.ToTable("Produtos");
                 });
@@ -267,25 +288,22 @@ namespace Infra.Migrations
                     b.Navigation("Produto");
                 });
 
+            modelBuilder.Entity("Domain.Entities.FakeCheckout", b =>
+                {
+                    b.HasOne("Domain.Entities.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
+
+                    b.Navigation("Produto");
+                });
+
             modelBuilder.Entity("Domain.Entities.Pedido", b =>
                 {
                     b.HasOne("Domain.Entities.Cliente", "Cliente")
                         .WithMany()
                         .HasForeignKey("ClienteId");
 
-                    b.HasOne("Domain.Entities.PedidoPagamento", "PedidoPagamento")
-                        .WithMany()
-                        .HasForeignKey("PedidoPagamentoId");
-
-                    b.HasOne("Domain.Entities.PedidoStatus", "PedidoStatus")
-                        .WithMany()
-                        .HasForeignKey("PedidoStatusId");
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("PedidoPagamento");
-
-                    b.Navigation("PedidoStatus");
                 });
 
             modelBuilder.Entity("Domain.Entities.PedidoProduto", b =>
@@ -295,7 +313,7 @@ namespace Infra.Migrations
                         .HasForeignKey("ComboId");
 
                     b.HasOne("Domain.Entities.Pedido", "Pedido")
-                        .WithMany("PedidoProdutos")
+                        .WithMany()
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -321,12 +339,16 @@ namespace Infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Pedido", null)
+                        .WithMany("Produtos")
+                        .HasForeignKey("PedidoId");
+
                     b.Navigation("Categoria");
                 });
 
             modelBuilder.Entity("Domain.Entities.Pedido", b =>
                 {
-                    b.Navigation("PedidoProdutos");
+                    b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618
         }

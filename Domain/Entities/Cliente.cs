@@ -1,6 +1,7 @@
 ﻿using Domain.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
@@ -18,6 +19,7 @@ namespace Domain.Entities
         }
 
         [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get;  set; }
 
         public string Cpf { get;  set; }

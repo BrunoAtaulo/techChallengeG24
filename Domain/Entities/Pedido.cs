@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
     public class Pedido
     {
-        [Key]
-        public int Id { get; set; }
-        public Cliente? Cliente { get; set; }
-        public PedidoStatus PedidoStatus { get; set; }
-        public PedidoPagamento PedidoPagamento { get; set; }
-        public string Nome { get; set; }
-        public string SobreNome { get; set; }
-        public DateTime DataCadastro { get; set; }
-        public List<PedidoProduto> PedidoProdutos { get; set; }
+          public Pedido(int clienteId, DateTime dataPedido, int pedidoStatusId)
+        {
+            ClienteId = clienteId;
+            DataPedido = dataPedido;
+            PedidoStatusId = pedidoStatusId;
+        }
 
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [ForeignKey("ClienteId")]
+        public int ClienteId { get; set; }
+        public virtual Cliente? Cliente { get; set; }
+        public int PedidoStatusId { get; set; }
+        public int PedidoPagamentoId { get; set; }
+        public DateTime DataPedido { get; set; }
+        public DateTime? DataAtualizacao { get; set; }
+        public List<Produto> Produtos {get; set;}
 
         #region Validations
         //public void Validate()

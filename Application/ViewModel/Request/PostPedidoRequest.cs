@@ -9,11 +9,11 @@ namespace Application.ViewModel.Request
     {
         public int IdCliente { get; set; }
 
-        public DateTime DataPedido { get; set; }
+        public string DataPedido { get; set; }
 
         public EnumPedidoStatus? PedidoStatus { get; set; }
 
-        public List<ComboRequest> ComboPedido { get; set; }
+        //public List<ComboRequest> ComboPedido { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
@@ -36,23 +36,30 @@ namespace Application.ViewModel.Request
             }
 
 
-            if (DataPedido == default)
+            if (string.IsNullOrEmpty(DataPedido))
             {
                 yield return new ValidationResult(
                     "A data do pedido é obrigatória.",
                     new[] { nameof(DataPedido) }
                 );
             }
-
-
-            if (ComboPedido == null || ComboPedido.Count == 0)
+            else if (!DateTime.TryParseExact(DataPedido, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out _))
             {
                 yield return new ValidationResult(
-                    "A lista de combo é obrigatória e deve ter pelo menos 1 item",
-                    new[] { nameof(ComboPedido) }
+                    "A data do pedido deve estar no formato dd/MM/yyyy.",
+                    new[] { nameof(DataPedido) }
                 );
-
             }
+
+
+            // if (ComboPedido == null || ComboPedido.Count == 0)
+            // {
+            //     yield return new ValidationResult(
+            //         "A lista de combo é obrigatória e deve ter pelo menos 1 item",
+            //         new[] { nameof(ComboPedido) }
+            //     );
+
+            // }
         }
 
 

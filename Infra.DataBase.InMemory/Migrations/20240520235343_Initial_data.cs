@@ -39,10 +39,10 @@ namespace Infra.Migrations
                 columns: new[] { "Nome" },
                 values: new object[,]
                 {
-                    { "Bebidas" },
+                    { "Lanche" },
                     { "Acompanhamento" },
-                    { "Sobremesa" },
-                    { "Outros" }
+                    { "Bebida" },
+                    { "Sobremesa" }
                 });
         }
 

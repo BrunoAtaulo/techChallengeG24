@@ -12,7 +12,8 @@ namespace Infra.DataBase.InMemory
         {
 
             services.AddScoped<IClienteRepository, ClientesRepository>();
-            services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IProdutosRepository, ProdutosRepository>();
+
         }
     }
 }

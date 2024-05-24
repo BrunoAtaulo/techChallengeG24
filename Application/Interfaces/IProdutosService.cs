@@ -1,21 +1,19 @@
 ﻿using Application.ViewModel.Request;
 using Application.ViewModel.Response;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
     public interface IProdutosService
     {
-        Task<ProdutoByIdResponse> PostProduto(ProdutoRequest filtro);
+        Task<ProdutoByIdRequest> PostProduto(PostProdutoRequest input);
 
         Task UpdateProdutoById(ProdutoByIdRequest produtoId, PatchProdutoRequest filtro);
 
-        Task DeleteClienteByCpf(ProdutoByIdRequest produtoId);
+        Task DeleteProdutoById(ProdutoByIdRequest produtoId);
 
-
-        Task<ProdutoResponse> GetProdutoByCategoria(ProdutoByIdCategoriaRequest filtro);
-
-
+        Task<IList<ProdutoResponse>> GetProdutoByCategoria(ProdutoByIdCategoriaRequest filtro);
 
 
     }

@@ -9,6 +9,6 @@ namespace Application.ViewModel.Request
 
         public EnumCategoria NomeCategoria { get; set; }
 
-        public List<ProdutoRequest> Produtos { get; set; }
+        public List<PostProdutoRequest> Produtos { get; set; }
     }
 }

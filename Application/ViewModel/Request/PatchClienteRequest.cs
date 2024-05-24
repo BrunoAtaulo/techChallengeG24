@@ -9,7 +9,5 @@ namespace Application.ViewModel.Request
         public string NomeCliente { get; set; }
         public string SobrenomeCliente { get; set; }
         public string NomeSocialCliente { get; set; }
-
-
     }
 }

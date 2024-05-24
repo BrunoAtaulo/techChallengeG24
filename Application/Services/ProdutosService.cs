@@ -6,6 +6,7 @@ using Domain.Entities;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Application.Services
@@ -19,7 +20,7 @@ namespace Application.Services
             _repository = repository;
         }
 
-        public async Task<ProdutoByIdRequest> PostProduto(ProdutoRequest input)
+        public async Task<ProdutoByIdRequest> PostProduto(PostProdutoRequest input)
         {
             var item = new Produto(input.IdCategoria,input.NomeProduto ,input.ValorProduto, input.Ativo);
 
@@ -43,19 +44,22 @@ namespace Application.Services
         }
 
         
-        public async Task DeleteClienteByCpf(ProdutoByIdRequest produtoId)
+        public async Task DeleteProdutoById(ProdutoByIdRequest produtoId)
         {
             Produto itemProduto = await ValidProduto(produtoId);
 
             await _repository.DeleteProduto(itemProduto);
         }
-        public async Task<ProdutoResponse> GetProdutoByCategoria(ProdutoByIdCategoriaRequest filtro)
+        public async Task<IList<ProdutoResponse>> GetProdutoByCategoria(ProdutoByIdCategoriaRequest filtro)
         {
 
-            var itemProduto = await _repository.GetProdutoByIdCategoria(filtro.IdCategoria);
-            if (itemProduto is null)
+            var lstProduto = await _repository.GetProdutosByIdCategoria(filtro.IdCategoria);
+            if (lstProduto is null)
                  return default;
-            return new ProdutoResponse(itemProduto);
+
+
+
+            return lstProduto.Select(s=>new  ProdutoResponse(s)).ToList();
         }
 
         #region Uteis
@@ -66,6 +70,8 @@ namespace Application.Services
                 throw new CustomValidationException("Produto não encontrado");
             return itemProduto;
         }
+
+        
         #endregion
 
     }

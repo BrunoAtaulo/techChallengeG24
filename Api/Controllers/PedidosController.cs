@@ -1,5 +1,6 @@
 ﻿using Application.ViewModel.Request;
 using Application.ViewModel.Response;
+using Domain.Base;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;

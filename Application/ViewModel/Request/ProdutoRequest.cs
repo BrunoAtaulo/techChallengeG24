@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Application.ViewModel.Request
 {
-    public class ProdutoRequest : IValidatableObject
+    public class PostProdutoRequest : IValidatableObject
     {
         public string NomeProduto { get; set; }
         public decimal ValorProduto { get; set; }

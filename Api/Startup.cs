@@ -9,6 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using System;
 
 namespace Api
@@ -24,25 +28,25 @@ namespace Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(options =>
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
             {
-                options.Filters.Add<CpfValidationActionFilter>();
-            })
-            .ConfigureApiBehaviorOptions(options =>
-            {
-                options.SuppressModelStateInvalidFilter = true;
-            })
-            .AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                options.SerializerSettings.Formatting = Formatting.Indented;
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Include;
+                options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
             });
+
+
 
             // Add Swagger configuration
             services.AddSwaggerConfiguration();
 
             services.AddDataBaseInMemoryModule();
             services.AddApplicationModule();
-
 
             services.AddEndpointsApiExplorer();
 

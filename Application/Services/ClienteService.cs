@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
+using Domain.Base;
 using Domain.Entities;
 using Domain.Interfaces;
 using System;

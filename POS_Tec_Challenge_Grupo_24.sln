@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{34A79ED2-6B73-499F-ACE0-7C317B7F19FA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{CC58CAEA-D90A-4410-8D63-9CDE3176203F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{34A79ED2-6B73-499F-ACE0-7C317B7F19FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34A79ED2-6B73-499F-ACE0-7C317B7F19FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34A79ED2-6B73-499F-ACE0-7C317B7F19FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC58CAEA-D90A-4410-8D63-9CDE3176203F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC58CAEA-D90A-4410-8D63-9CDE3176203F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC58CAEA-D90A-4410-8D63-9CDE3176203F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC58CAEA-D90A-4410-8D63-9CDE3176203F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{B8AC8EAD-38B4-454B-82A4-FA8CBD065FAB} = {6B37E9A2-62B8-412D-ACC3-2B518012BC8B}
 		{39C1E4C7-E408-40EE-9279-3F3966608EAB} = {69AA193D-004C-452E-BA25-0627BD0042B0}
 		{93E82816-71C9-4DCF-9594-5ECE9A851AF4} = {69AA193D-004C-452E-BA25-0627BD0042B0}
+		{CC58CAEA-D90A-4410-8D63-9CDE3176203F} = {E470F337-510D-41D5-85D3-BC287AB6AE3A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E11C44F2-2B48-49DD-B5D4-46029578C4DE}

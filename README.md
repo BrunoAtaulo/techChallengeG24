@@ -39,8 +39,16 @@ Esse comando irá ler o arquivo <b>docker-compose.yml</b> que está na mesma pas
 
 </br>
 </br>
+
 ```
 Servidor: localhost
 Usuário: SA
 Senha: Pa55w0rd2021
 Base de Dados: LancheRapidoBD
+
+```
+
+
+
+
+

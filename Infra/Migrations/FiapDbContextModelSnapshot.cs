@@ -4,7 +4,6 @@ using Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,11 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(FiapDbContext))]
-    [Migration("20240523213658_inicial")]
-    partial class inicial
+    partial class FiapDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,7 +131,7 @@ namespace Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ClienteId")
+                    b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DataAtualizacao")
@@ -154,23 +151,6 @@ namespace Infra.Migrations
                     b.HasIndex("ClienteId");
 
                     b.ToTable("Pedidos");
-                });
-
-            modelBuilder.Entity("Domain.Entities.PedidoPagamento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nome")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PedidosPagamentos");
                 });
 
             modelBuilder.Entity("Domain.Entities.PedidoProduto", b =>
@@ -204,23 +184,6 @@ namespace Infra.Migrations
                     b.ToTable("PedidoProdutos");
                 });
 
-            modelBuilder.Entity("Domain.Entities.PedidoStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nome")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PedidoStatus");
-                });
-
             modelBuilder.Entity("Domain.Entities.Produto", b =>
                 {
                     b.Property<int>("Id")
@@ -248,28 +211,9 @@ namespace Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId");
-
                     b.HasIndex("PedidoId");
 
                     b.ToTable("Produtos");
-                });
-
-            modelBuilder.Entity("Domain.Entities.ProdutoCategoria", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nome")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProdutoCategorias");
                 });
 
             modelBuilder.Entity("Domain.Entities.ComboProduto", b =>
@@ -304,7 +248,9 @@ namespace Infra.Migrations
                 {
                     b.HasOne("Domain.Entities.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId");
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cliente");
                 });
@@ -336,17 +282,9 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Domain.Entities.Produto", b =>
                 {
-                    b.HasOne("Domain.Entities.ProdutoCategoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entities.Pedido", null)
                         .WithMany("Produtos")
                         .HasForeignKey("PedidoId");
-
-                    b.Navigation("Categoria");
                 });
 
             modelBuilder.Entity("Domain.Entities.Pedido", b =>

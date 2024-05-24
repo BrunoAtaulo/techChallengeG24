@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace Domain.Base { 
+namespace Domain.Base
+{
     public class ErrorValidacao
     {
         public string MensagemErro { get; set; }

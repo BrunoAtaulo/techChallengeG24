@@ -4,7 +4,6 @@ using Application.ViewModel.Response;
 using Domain.Base;
 using Domain.Entities;
 using Domain.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,7 +21,7 @@ namespace Application.Services
 
         public async Task<ProdutoByIdRequest> PostProduto(PostProdutoRequest input)
         {
-            var item = new Produto(input.IdCategoria,input.NomeProduto ,input.ValorProduto, input.Ativo);
+            var item = new Produto(input.IdCategoria, input.NomeProduto, input.ValorProduto, input.Ativo);
 
             await _repository.PostProduto(item);
 
@@ -43,7 +42,7 @@ namespace Application.Services
 
         }
 
-        
+
         public async Task DeleteProdutoById(ProdutoByIdRequest produtoId)
         {
             Produto itemProduto = await ValidProduto(produtoId);
@@ -55,11 +54,11 @@ namespace Application.Services
 
             var lstProduto = await _repository.GetProdutosByIdCategoria(filtro.IdCategoria);
             if (lstProduto is null)
-                 return default;
+                return default;
 
 
 
-            return lstProduto.Select(s=>new  ProdutoResponse(s)).ToList();
+            return lstProduto.Select(s => new ProdutoResponse(s)).ToList();
         }
 
         #region Uteis
@@ -71,7 +70,7 @@ namespace Application.Services
             return itemProduto;
         }
 
-        
+
         #endregion
 
     }

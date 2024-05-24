@@ -60,7 +60,7 @@ namespace Api.Controllers
 
         }
 
-    
+
         #endregion
 
         #region POST/clientes
@@ -144,9 +144,9 @@ namespace Api.Controllers
             {
                 return StatusCode(500, "Ocorreu um erro inesperado.");
             }
-        
 
-    }
+
+        }
         #endregion
 
         #region PATCH/clientes

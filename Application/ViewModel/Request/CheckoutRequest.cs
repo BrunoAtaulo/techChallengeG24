@@ -5,7 +5,7 @@ namespace Application.ViewModel.Request
 {
     public class CheckoutRequest : IValidatableObject
     {
-     
+
         public int IdProduto { get; set; }
 
         public int Quantidade { get; set; }

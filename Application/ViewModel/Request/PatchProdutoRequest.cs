@@ -7,8 +7,8 @@ namespace Application.ViewModel.Request
         public decimal? ValorProduto { get; set; }
         public int? IdCategoria { get; set; }
 
-        public bool?  Ativo {  get; set; }
-        
+        public bool? Ativo { get; set; }
+
 
 
     }

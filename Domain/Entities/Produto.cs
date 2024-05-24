@@ -1,5 +1,4 @@
 ﻿using Domain.Base;
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,11 +6,11 @@ namespace Domain.Entities
 {
     public class Produto
     {
-        public Produto( int categoriaId,  string nome, decimal preco, bool status)
+        public Produto(int categoriaId, string nome, decimal preco, bool status)
         {
-            
+
             CategoriaId = categoriaId;
-            
+
             Nome = nome;
             Preco = preco;
             Status = status;
@@ -22,10 +21,7 @@ namespace Domain.Entities
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int CategoriaId { get; set; }
-        [ForeignKey("CategoriaId")]
-
-        public virtual ProdutoCategoria Categoria { get; set; }
-
+        
         public string Nome { get; set; }
 
         public decimal Preco { get; set; }

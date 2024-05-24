@@ -13,7 +13,7 @@ namespace Domain.Entities
         public virtual Produto Produto { get; set; }
         public int Quantidade { get; set; }
         public string NomeCliente { get; set; }
-       
+
 
 
         #region Validations

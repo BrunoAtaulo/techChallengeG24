@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class initialData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,51 +43,12 @@ namespace Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PedidosPagamentos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PedidosPagamentos", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PedidoStatus",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PedidoStatus", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProdutoCategorias",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProdutoCategorias", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Pedidos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteId = table.Column<int>(type: "int", nullable: true),
+                    ClienteId = table.Column<int>(type: "int", nullable: false),
                     PedidoStatusId = table.Column<int>(type: "int", nullable: false),
                     PedidoPagamentoId = table.Column<int>(type: "int", nullable: false),
                     DataPedido = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -100,7 +61,8 @@ namespace Infra.Migrations
                         name: "FK_Pedidos_Clientes_ClienteId",
                         column: x => x.ClienteId,
                         principalTable: "Clientes",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -123,12 +85,6 @@ namespace Infra.Migrations
                         column: x => x.PedidoId,
                         principalTable: "Pedidos",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Produtos_ProdutoCategorias_CategoriaId",
-                        column: x => x.CategoriaId,
-                        principalTable: "ProdutoCategorias",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -246,11 +202,6 @@ namespace Infra.Migrations
                 column: "ClienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produtos_CategoriaId",
-                table: "Produtos",
-                column: "CategoriaId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Produtos_PedidoId",
                 table: "Produtos",
                 column: "PedidoId");
@@ -269,12 +220,6 @@ namespace Infra.Migrations
                 name: "PedidoProdutos");
 
             migrationBuilder.DropTable(
-                name: "PedidosPagamentos");
-
-            migrationBuilder.DropTable(
-                name: "PedidoStatus");
-
-            migrationBuilder.DropTable(
                 name: "Combos");
 
             migrationBuilder.DropTable(
@@ -282,9 +227,6 @@ namespace Infra.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pedidos");
-
-            migrationBuilder.DropTable(
-                name: "ProdutoCategorias");
 
             migrationBuilder.DropTable(
                 name: "Clientes");

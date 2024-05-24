@@ -5,8 +5,6 @@ using Domain.Base;
 using Domain.Entities;
 using Domain.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Application.Services
@@ -29,7 +27,7 @@ namespace Application.Services
         public async Task<PedidoByIdResponse> PostPedidos(PostPedidoRequest filtro)
         {
 
-           
+
             if (filtro == null)
                 throw new ArgumentNullException(nameof(filtro));
 
@@ -54,7 +52,7 @@ namespace Application.Services
             return response;
         }
 
-   
+
         public async Task<PedidoResponse> GetPedidosAsync(PedidoRequest filtro)
         {
             var pedidos = await _pedidoRepository.GetPedidoByIdAsync(filtro.IdPedido);
@@ -67,7 +65,7 @@ namespace Application.Services
                 DataPedido = pedidos.DataPedido,
                 PedidoStatus = (EnumPedidoStatus?)pedidos.PedidoStatusId,
                 PedidoPagamento = (EnumPedidoPagamento?)pedidos.PedidoPagamentoId
-                
+
             };
         }
 
@@ -90,16 +88,5 @@ namespace Application.Services
 
 
 
-    #region CustomValidator
-    public class CustomValidationException : Exception
-        {
-            public ErrorValidacao Error { get; }
 
-            public CustomValidationException(ErrorValidacao error)
-            {
-                Error = error;
-            }
-        }
-        #endregion
-    
 }

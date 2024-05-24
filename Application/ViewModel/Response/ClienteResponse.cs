@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Application.ViewModel.Response
+﻿namespace Application.ViewModel.Response
 {
     public class ClienteResponse
     {
@@ -12,8 +10,8 @@ namespace Application.ViewModel.Response
         public string NomeSocialCliente { get; set; }
         public string DataCadastroCliente { get; set; }
 
-       
-       
+
+
 
 
 

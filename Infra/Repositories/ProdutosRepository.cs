@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Infra.DataBase.InMemory.Repositories
+namespace Infra.Repositories
 {
     public class ProdutosRepository : IProdutosRepository
     {

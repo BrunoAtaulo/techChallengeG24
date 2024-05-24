@@ -3,7 +3,7 @@
 API desenvolvida para controle de pedidos de uma lanchonete
 
 
-- Miro: [Dashboard Miro](https://miro.com/app/board/uXjVKQl5ank=/)
+- Miro: [Dashboard Miro](https://miro.com/app/board/uXjVKQl5ank=/?share_link_id=2259608060)
 
 
 ## Grupo 24 - Integrantes

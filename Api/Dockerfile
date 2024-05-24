@@ -12,7 +12,7 @@ WORKDIR /src
 COPY ["Api/Api.csproj", "Api/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
-COPY ["Infra.DataBase.InMemory/Infra.csproj", "Infra.DataBase.InMemory/"]
+COPY ["Infra/Infra.csproj", "Infra/"]
 RUN dotnet restore "./Api/Api.csproj"
 COPY . .
 WORKDIR "/src/Api"

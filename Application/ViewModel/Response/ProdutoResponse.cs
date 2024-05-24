@@ -6,10 +6,11 @@ namespace Application.ViewModel.Response
 {
     public class ProdutoResponse
     {
-        public ProdutoResponse(Produto _produto) {
+        public ProdutoResponse(Produto _produto)
+        {
 
             IdProduto = _produto.Id;
-            NomeProduto= _produto.Nome;
+            NomeProduto = _produto.Nome;
             ValorProduto = _produto.Preco;
             Ativo = _produto.Status;
             IdCategoria = _produto.CategoriaId;

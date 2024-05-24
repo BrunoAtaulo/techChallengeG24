@@ -4,7 +4,7 @@ using Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace Infra.DataBase.InMemory.Repositories
+namespace Infra.Repositories
 {
     public class ClientesRepository : IClienteRepository
     {
@@ -23,7 +23,7 @@ namespace Infra.DataBase.InMemory.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<Cliente>GetCliente(string cpfCliente)
+        public async Task<Cliente> GetCliente(string cpfCliente)
         {
             return await _dbContext.Clientes.FirstOrDefaultAsync(c => c.Cpf == cpfCliente);
         }

@@ -7,7 +7,7 @@ namespace Domain.Entities
 {
     public class Pedido
     {
-          public Pedido(int clienteId, DateTime dataPedido, int pedidoStatusId)
+        public Pedido(int clienteId, DateTime dataPedido, int pedidoStatusId)
         {
             ClienteId = clienteId;
             DataPedido = dataPedido;
@@ -24,7 +24,7 @@ namespace Domain.Entities
         public int PedidoPagamentoId { get; set; }
         public DateTime DataPedido { get; set; }
         public DateTime? DataAtualizacao { get; set; }
-        public List<Produto> Produtos {get; set;}
+        public List<Produto> Produtos { get; set; }
 
         #region Validations
         //public void Validate()

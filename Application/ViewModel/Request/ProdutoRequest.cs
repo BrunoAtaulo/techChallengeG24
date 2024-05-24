@@ -8,7 +8,7 @@ namespace Application.ViewModel.Request
     {
         public string NomeProduto { get; set; }
         public decimal ValorProduto { get; set; }
-        
+
         [CategoriaValid]
         public int IdCategoria { get; set; }
 
@@ -16,7 +16,7 @@ namespace Application.ViewModel.Request
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (ValorProduto <= 0 )
+            if (ValorProduto <= 0)
             {
                 yield return new ValidationResult(
                     "O Valor do Produto deve ser maior que zero.",

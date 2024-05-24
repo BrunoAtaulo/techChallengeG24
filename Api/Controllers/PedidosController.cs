@@ -46,7 +46,7 @@ namespace Api.Controllers
             Tags = new[] { "Pedidos" }
         )]
         [Consumes("application/json")]
-        public async Task<IActionResult> GetPedidos( [FromRoute] PedidoRequest filtro)
+        public async Task<IActionResult> GetPedidos([FromRoute] PedidoRequest filtro)
         {
 
             try
@@ -68,7 +68,7 @@ namespace Api.Controllers
             {
                 return StatusCode(500, "Ocorreu um erro inesperado.");
             }
-  
+
         }
 
         #endregion
@@ -121,7 +121,7 @@ namespace Api.Controllers
                 return StatusCode(500, "Ocorreu um erro inesperado.");
             }
         }
-        
+
         #endregion
 
         #region PATCH/pedidos/{idPedido}
@@ -178,9 +178,9 @@ namespace Api.Controllers
             }
         }
     }
-        #endregion
+    #endregion
 
-       
 
-    
+
+
 }

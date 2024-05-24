@@ -4,7 +4,6 @@ using Application.ViewModel.Response;
 using Domain.Base;
 using Domain.Entities;
 using Domain.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,7 +25,7 @@ namespace Application.Services
                 filtro.NomeCliente,
                 filtro.SobrenomeCliente,
                 filtro.EmailCliente,
-                filtro.NomeSocialCliente               
+                filtro.NomeSocialCliente
             );
 
             await _clienteRepository.PostCliente(rtn);
@@ -50,7 +49,7 @@ namespace Application.Services
                 SobreNomeCliente = cliente.SobreNome,
                 EmailCliente = cliente.Email,
                 NomeSocialCliente = cliente.NomeSocial,
-                DataCadastroCliente = cliente.DataCadastro.ToString("dd/MM/yyyy HH:mm:ss") 
+                DataCadastroCliente = cliente.DataCadastro.ToString("dd/MM/yyyy HH:mm:ss")
             };
         }
 
@@ -97,7 +96,7 @@ namespace Application.Services
 
         public async Task DeleteClienteByCpf(ClienteByCpfRequest cpfCliente)
         {
-           
+
             var cliente = await _clienteRepository.GetCliente(cpfCliente.CpfCliente);
 
             if (cliente == null)
@@ -108,7 +107,7 @@ namespace Application.Services
                     ListaErros = new List<ResultError>()
                 };
 
-               
+
 
                 throw new CustomValidationException(errorResponse);
             }

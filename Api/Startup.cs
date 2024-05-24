@@ -1,20 +1,17 @@
 using App.Api.Configurations;
 using Application;
-using Domain.Entities.Validator;
 using Infra.Context;
-using Infra.DataBase.InMemory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using System;
-
+using Infra;
 namespace Api
 {
     public class Startup
@@ -37,7 +34,7 @@ namespace Api
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Include;
                 options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                    options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
             });
 
 
@@ -45,7 +42,7 @@ namespace Api
             // Add Swagger configuration
             services.AddSwaggerConfiguration();
 
-            services.AddDataBaseInMemoryModule();
+            services.AddDataBaseModule();
             services.AddApplicationModule();
 
             services.AddEndpointsApiExplorer();

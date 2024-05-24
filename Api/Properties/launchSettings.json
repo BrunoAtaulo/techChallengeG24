@@ -6,7 +6,7 @@
       "launchUrl": "http://localhost:6004",
       "environmentVariables": {
         "ASPNETCORE_HTTP_PORTS": "8080",
-        "DATABASE": "Data Source=host.docker.internal,1433;Initial Catalog=FiapDB;User ID=SA;Password=Pa55w0rd2021;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
+        "DATABASE": "Data Source=host.docker.internal,1433;Initial Catalog=LancheRapidoBD;User ID=SA;Password=Pa55w0rd2021;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
       },
       "publishAllPorts": true
     }

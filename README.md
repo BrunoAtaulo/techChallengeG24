@@ -10,3 +10,12 @@ API desenvolvida para controle de pedidos de uma lanchonete
 💻 *<b>RM355456</b>*: Franciele de Jesus Zanella Ataulo </br>
 💻 *<b>RM355476</b>*: Bruno Luis Begliomini Ataulo </br>
 💻 *<b>RM355921</b>*: Cesar Pereira Moroni </br>
+
+
+Nome Discord:
+Franciele RM 355456
+Bruno - RM355476
+Cesar P Moroni RM355921
+
+
+

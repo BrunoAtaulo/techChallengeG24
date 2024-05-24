@@ -22,19 +22,11 @@ public class PedidoRepository : IPedidoRepository
           await _context.SaveChangesAsync();
     }
 
-    public async Task<IList<Pedido>> GetPedidosAsync(int? idCliente, int? idPedido, EnumPedidoStatus? pedidoStatus, EnumPedidoPagamento? pedidoPagamento, DateTime? dataPedido)
+    public async Task<IList<Pedido>> GetPedidosAsync(int idPedido, EnumPedidoStatus? pedidoStatus, EnumPedidoPagamento? pedidoPagamento)
     {
         var query = _context.Pedidos.AsQueryable();
 
-        if (idCliente.HasValue)
-        {
-            query = query.Where(p => p.ClienteId == idCliente.Value);
-        }
-
-        if (idPedido.HasValue)
-        {
-            query = query.Where(p => p.Id == idPedido.Value);
-        }
+        query = query.Where(p => p.Id == idPedido);
 
         if (pedidoStatus.HasValue)
         {
@@ -46,13 +38,11 @@ public class PedidoRepository : IPedidoRepository
             query = query.Where(p => p.PedidoPagamentoId == (int)pedidoPagamento.Value);
         }
 
-        if (dataPedido.HasValue)
-        {
-            query = query.Where(p => p.DataPedido.Date == dataPedido.Value.Date);
-        }
+       
 
         return await query.ToListAsync();
     }
+
 
     public async Task<Pedido> GetPedidoByIdAsync(int idPedido)
     {

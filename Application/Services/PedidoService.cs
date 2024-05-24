@@ -54,27 +54,15 @@ namespace Application.Services
             return response;
         }
 
+   
         public async Task<IList<PedidoResponse>> GetPedidosAsync(PedidoRequest filtro)
         {
-            var pedidos = await _pedidoRepository.GetPedidosAsync(
-                filtro.IdCliente > 0 ? filtro.IdCliente : (int?)null,
-                filtro.IdPedido > 0 ? filtro.IdPedido : (int?)null,
-                filtro.PedidoStatus,
-                filtro.PedidoPagamento,
-                filtro.DataPedido != default(DateTime) ? filtro.DataPedido : (DateTime?)null
-            );
+            var pedidos = await _pedidoRepository.GetPedidos(filtro.IdPedido);
+            if (pedidos == null) return null;
 
-            return pedidos.Select(p => new PedidoResponse
-            {
-                IdCliente = p.ClienteId,
-                IdPedido = p.Id,
-                QuatidadePedido = p.Produtos.Count,
-                IdCombo = null, 
-                PedidoStatus = (EnumPedidoStatus)p.PedidoStatusId,
-                PedidoPagamento = (EnumPedidoPagamento)p.PedidoPagamentoId,
-                DataPedido = p.DataPedido
-            }).ToList();
+           
         }
+
 
         public async Task<bool> UpdatePedidoStatusAsync(int idPedido, EnumPedidoStatus pedidoStatus)
         {

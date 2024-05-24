@@ -2,6 +2,7 @@
 using Application.Services;
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
+using Domain.Base;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -29,13 +30,12 @@ namespace Api.Controllers
         [SwaggerResponse(204, "Requisição concluída, porém não há dados de retorno!")]
         [SwaggerResponse(206, "Conteúdo parcial!", typeof(IList<PedidoResponse>))]
         [SwaggerResponse(412, "Condição prévia dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
-        [HttpGet("")]
+        [HttpGet("{idPedido}")]
         [SwaggerOperation(
             Summary = "Busca todos os pedidos realizados.",
             Description = @"Endpoint para buscar todos os pedidos que foram realizados. A busca pode ser feita pelos filtros abaixo:</br></br>
-                            <b>Parâmetros de entrada:</b></br></br>
-                            &bull; <b>idCliente</b>:  Id do cliente que realizou o pedido. &rArr; <font color='green'><b>Opcional</b></font><br>
-                             &bull; <b>idPedido</b>:  Id do pedido. &rArr; <font color='green'><b>Opcional</b></font><br>
+                            <b>Parâmetros de entrada:</b></br></br>                           
+                             &bull; <b>idPedido</b>:  Id do pedido. &rArr; <font color='green'><b>Obrigatório</b></font><br>
                         &bull; <b>pedidoStatus</b>: Status atual do pedido. &rArr; <font color='green'><b>Opcional</b></font><br>
                              <strong> 1 = </strong> Recebido<br/>
                              <strong> 2 = </strong> Em preparação<br/>
@@ -44,25 +44,36 @@ namespace Api.Controllers
                         &bull; <b>pedidoPagamento</b>: Status atual do pagamento. &rArr; <font color='green'><b>Opcional</b></font><br>
                              <strong> 1 = </strong> Pendente<br/>
                              <strong> 2 = </strong> Aprovado<br/>
-                             <strong> 3 = </strong> Cancelado                          
-                        &bull; <b>dataPedido</b>: Data em que o pedido foi realizado. &rArr; <font color='green'><b>Opcional</b></font>
+                             <strong> 3 = </strong> Cancelado                                                 
 ",
             Tags = new[] { "Pedidos" }
         )]
         [Consumes("application/json")]
-        public async Task<IActionResult> GetPedidos([FromQuery] PedidoRequest filtro)
+        public async Task<IActionResult> GetPedidos( [FromRoute] PedidoRequest filtro)
         {
 
-            var pedidos = await _pedidoService.GetPedidosAsync(filtro);
-
-            if (pedidos == null || pedidos.Count == 0)
+            try
             {
-                return NoContent();
-            }
+                var rtn = await _pedidoService.GetPedidosAsync(filtro);
+                if (rtn == null)
+                {
+                    return NoContent();
+                }
 
-            return Ok(pedidos);
+                return Ok(rtn);
+            }
+            catch (CustomValidationException ex)
+            {
+                var errorResponse = ex.Error;
+                return StatusCode(412, errorResponse);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado.");
+            }
+  
         }
-    
+
         #endregion
 
         #region POST/pedidos

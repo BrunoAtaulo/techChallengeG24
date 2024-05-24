@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace Domain.Interfaces{
     public interface IPedidoRepository{
          Task PostPedido(Pedido pedido);
-        Task<IList<Pedido>> GetPedidosAsync(int? idCliente, int? idPedido, EnumPedidoStatus? pedidoStatus, EnumPedidoPagamento? pedidoPagamento, DateTime? dataPedido);
+
+        Task<Pedido> GetPedidos(int id);
+       
 
         Task<Pedido> GetPedidoByIdAsync(int idPedido);
         Task<bool> UpdatePedidoAsync(Pedido pedido);

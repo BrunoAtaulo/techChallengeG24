@@ -1,17 +1,19 @@
-﻿using Application.ViewModel.Request;
+﻿using Application.Interfaces;
+using Application.ViewModel.Request;
 using Application.ViewModel.Response;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Application.Interfaces;
 using static Application.Services.PedidoService;
-using System;
+
+
 
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("pedidos/")]
+    [System.Web.Mvc.Route("pedidos/")]
     public class PedidosController : ControllerBase
     {
         private readonly IPedidoService _pedidoService;
@@ -48,8 +50,16 @@ namespace Api.Controllers
         public async Task<IActionResult> GetPedidos([FromQuery] PedidoRequest filtro)
         {
 
-            return Ok();
+            var pedidos = await _pedidoService.GetPedidosAsync(filtro);
+
+            if (pedidos == null || pedidos.Count == 0)
+            {
+                return NoContent();
+            }
+
+            return Ok(pedidos);
         }
+    
         #endregion
 
         #region POST/pedidos

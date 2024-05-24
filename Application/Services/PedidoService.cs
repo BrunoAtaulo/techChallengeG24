@@ -6,6 +6,7 @@ using Domain.Entities;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Application.Services
@@ -32,7 +33,7 @@ namespace Application.Services
             if (filtro == null)
                 throw new ArgumentNullException(nameof(filtro));
 
-            if (!DateTime.TryParseExact(filtro.DataPedido, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out var dataPedido))
+            if (!DateTime.TryParseExact(filtro.DataPedido.ToString(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out var dataPedido))
             {
                 throw new ArgumentException("Formato de data inválido. Use dd/MM/yyyy.");
             }
@@ -52,8 +53,32 @@ namespace Application.Services
 
             return response;
         }
-        #region CustomValidator
-        public class CustomValidationException : Exception
+
+        public async Task<IList<PedidoResponse>> GetPedidosAsync(PedidoRequest filtro)
+        {
+            var pedidos = await _pedidoRepository.GetPedidosAsync(
+                filtro.IdCliente > 0 ? filtro.IdCliente : (int?)null,
+                filtro.IdPedido > 0 ? filtro.IdPedido : (int?)null,
+                filtro.PedidoStatus,
+                filtro.PedidoPagamento,
+                filtro.DataPedido != default(DateTime) ? filtro.DataPedido : (DateTime?)null
+            );
+
+            return pedidos.Select(p => new PedidoResponse
+            {
+                IdCliente = p.ClienteId,
+                IdPedido = p.Id,
+                QuatidadePedido = p.Produtos.Count,
+                IdCombo = null, 
+                PedidoStatus = (EnumPedidoStatus)p.PedidoStatusId,
+                PedidoPagamento = (EnumPedidoPagamento)p.PedidoPagamentoId,
+                DataPedido = p.DataPedido
+            }).ToList();
+        }
+    
+
+    #region CustomValidator
+    public class CustomValidationException : Exception
         {
             public ErrorValidacao Error { get; }
 

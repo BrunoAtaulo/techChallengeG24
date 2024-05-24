@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\fedz\\source\\pos\\techChallengeG24\\",
+  "WorkspaceRootPath": "C:\\Users\\fedz\\source\\repos\\techChallengeG24\\",
   "Documents": [],
   "DocumentGroupContainers": [
     {
@@ -53,10 +53,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -70,6 +66,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:150:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -134,6 +134,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:158:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
             }
           ]
         },

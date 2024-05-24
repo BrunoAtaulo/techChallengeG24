@@ -54,4 +54,15 @@ public class PedidoRepository : IPedidoRepository
         return await query.ToListAsync();
     }
 
+    public async Task<Pedido> GetPedidoByIdAsync(int idPedido)
+    {
+        return await _context.Pedidos.FindAsync(idPedido);
+    }
+
+    public async Task<bool> UpdatePedidoAsync(Pedido pedido)
+    {
+        _context.Pedidos.Update(pedido);
+        return await _context.SaveChangesAsync() > 0;
+    }
+
 }

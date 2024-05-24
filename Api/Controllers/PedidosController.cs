@@ -1,6 +1,9 @@
 ﻿using Application.Interfaces;
+using Application.Services;
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
+using Domain.Entities;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
@@ -140,11 +143,36 @@ namespace Api.Controllers
         [Consumes("application/json")]
         public async Task<IActionResult> PatchPedido([FromRoute] int idPedido, [FromQuery] PatchStatusPedidoRequest filtro)
         {
-            return Ok();
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var success = await _pedidoService.UpdatePedidoStatusAsync(idPedido, filtro.PedidoStatus.Value);
+
+                if (!success)
+                {
+                    return NotFound("Pedido não encontrado.");
+                }
+
+                return Ok("Status do pedido atualizado com sucesso.");
+            }
+            catch (CustomValidationException ex)
+            {
+                var errorResponse = ex.Error;
+                return StatusCode(412, errorResponse);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado.");
+            }
         }
+    }
         #endregion
 
        
 
-    }
+    
 }

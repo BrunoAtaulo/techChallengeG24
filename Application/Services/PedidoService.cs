@@ -29,7 +29,7 @@ namespace Application.Services
         public async Task<PedidoByIdResponse> PostPedidos(PostPedidoRequest filtro)
         {
 
-            // Validação de entrada
+           
             if (filtro == null)
                 throw new ArgumentNullException(nameof(filtro));
 
@@ -75,7 +75,22 @@ namespace Application.Services
                 DataPedido = p.DataPedido
             }).ToList();
         }
-    
+
+        public async Task<bool> UpdatePedidoStatusAsync(int idPedido, EnumPedidoStatus pedidoStatus)
+        {
+            var pedido = await _pedidoRepository.GetPedidoByIdAsync(idPedido);
+            if (pedido == null)
+            {
+                return false;
+            }
+
+            pedido.PedidoStatusId = (int)pedidoStatus;
+            return await _pedidoRepository.UpdatePedidoAsync(pedido);
+        }
+    }
+
+
+
 
     #region CustomValidator
     public class CustomValidationException : Exception
@@ -88,5 +103,5 @@ namespace Application.Services
             }
         }
         #endregion
-    }
+    
 }

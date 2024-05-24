@@ -30,7 +30,7 @@ namespace Infra.Context
         public DbSet<FakeCheckout> Checkout { get; set; }
 
 
-          //protected override void OnConfiguring(DbContextOptionsBuilder options)
+         //protected override void OnConfiguring(DbContextOptionsBuilder options)
          //=> options.UseSqlServer("Server=localhost,1433;Database=LancheRapidoBD;User Id=SA;Password=Pa55w0rd2021;MultipleActiveResultSets=true");
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {

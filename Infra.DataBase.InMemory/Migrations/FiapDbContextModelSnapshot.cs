@@ -110,22 +110,13 @@ namespace Infra.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int?>("PedidoId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ProdutoId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("ValorUnitario")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PedidoId");
 
                     b.HasIndex("ProdutoId");
 
@@ -146,22 +137,18 @@ namespace Infra.Migrations
                     b.Property<DateTime?>("DataAtualizacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DataCadastro")
+                    b.Property<DateTime>("DataPedido")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("PedidoPagamentoId")
+                    b.Property<int>("PedidoPagamentoId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PedidoStatusId")
+                    b.Property<int>("PedidoStatusId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("PedidoPagamentoId");
-
-                    b.HasIndex("PedidoStatusId");
 
                     b.ToTable("Pedidos");
                 });
@@ -246,6 +233,9 @@ namespace Infra.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<int?>("PedidoId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Preco")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
@@ -256,6 +246,8 @@ namespace Infra.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
+
+                    b.HasIndex("PedidoId");
 
                     b.ToTable("Produtos");
                 });
@@ -298,15 +290,9 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Domain.Entities.FakeCheckout", b =>
                 {
-                    b.HasOne("Domain.Entities.Pedido", "Pedido")
-                        .WithMany()
-                        .HasForeignKey("PedidoId");
-
                     b.HasOne("Domain.Entities.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId");
-
-                    b.Navigation("Pedido");
 
                     b.Navigation("Produto");
                 });
@@ -317,19 +303,7 @@ namespace Infra.Migrations
                         .WithMany()
                         .HasForeignKey("ClienteId");
 
-                    b.HasOne("Domain.Entities.PedidoPagamento", "PedidoPagamento")
-                        .WithMany()
-                        .HasForeignKey("PedidoPagamentoId");
-
-                    b.HasOne("Domain.Entities.PedidoStatus", "PedidoStatus")
-                        .WithMany()
-                        .HasForeignKey("PedidoStatusId");
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("PedidoPagamento");
-
-                    b.Navigation("PedidoStatus");
                 });
 
             modelBuilder.Entity("Domain.Entities.PedidoProduto", b =>
@@ -339,7 +313,7 @@ namespace Infra.Migrations
                         .HasForeignKey("ComboId");
 
                     b.HasOne("Domain.Entities.Pedido", "Pedido")
-                        .WithMany("PedidoProdutos")
+                        .WithMany()
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -365,12 +339,16 @@ namespace Infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Pedido", null)
+                        .WithMany("Produtos")
+                        .HasForeignKey("PedidoId");
+
                     b.Navigation("Categoria");
                 });
 
             modelBuilder.Entity("Domain.Entities.Pedido", b =>
                 {
-                    b.Navigation("PedidoProdutos");
+                    b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618
         }

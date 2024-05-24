@@ -25,7 +25,7 @@ namespace Api.Controllers
         [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(ClienteResponse))]
         [SwaggerResponse(204, "Requisicao concluida, porem nao ha dados de retorno!")]
         [SwaggerResponse(206, "Conteudo parcial!", typeof(IList<ClienteResponse>))]
-        [SwaggerResponse(412, "Condição previa dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
+        [SwaggerResponse(412, "condicao previa dada em um ou mais dos campos avaliado como falsa.", typeof(ErrorValidacao))]
         [HttpGet("{cpfCliente}")]
         [SwaggerOperation(
             Summary = "Busca informacoes de cadastro de um determinado cliente.",
@@ -69,8 +69,8 @@ namespace Api.Controllers
         [SwaggerResponse(401, "Requisicao requer autenticacao do usuario!")]
         [SwaggerResponse(403, "Privilegios insuficientes!")]
         [SwaggerResponse(404, "O recurso solicitado nao existe!")]
-        [SwaggerResponse(412, "Condição previa dada em um ou mais dos campos avaliado como falsa!")]
-        [SwaggerResponse(500, "Servidor encontrou uma condição inesperada!")]
+        [SwaggerResponse(412, "Condicao previa dada em um ou mais dos campos avaliado como falsa!")]
+        [SwaggerResponse(500, "Servidor encontrou uma condicao inesperada!")]
         [HttpPost("")]
         [SwaggerOperation(
          Summary = "Endpoint para criacao de cliente na lanchonete.",

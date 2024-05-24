@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Application.Interfaces;
+using static Application.Services.PedidoService;
+using System;
 
 namespace Api.Controllers
 {
@@ -11,7 +14,11 @@ namespace Api.Controllers
     [Route("pedidos/")]
     public class PedidosController : ControllerBase
     {
-
+        private readonly IPedidoService _pedidoService;
+        public PedidosController(IPedidoService pedidoService)
+        {
+            _pedidoService = pedidoService;
+        }
         #region [GET/pedidos]
         [SwaggerResponse(200, "Consulta executada com sucesso!", typeof(PedidoResponse))]
         [SwaggerResponse(204, "Requisição concluída, porém não há dados de retorno!")]
@@ -65,19 +72,35 @@ namespace Api.Controllers
                              <strong> 2 = </strong> Em preparação<br/>
                              <strong> 3 = </strong>  Pronto<br/>
                              <strong> 4 = </strong> Finalizado   
-                          &bull;<b>comboPedido</b>: Lista de combos incluídos no pedido, cada um contendo uma lista de produtos:<br>
-                       &nbsp;&emsp;<b>produtoPedido</b>: Lista dos produtos incluídos no combo.<br>
-                        &nbsp;&emsp;&nbsp;&emsp;&emsp; <b>idProduto</b>: Id do produto que foi incluído no combo. &rArr; <font color='red'><b>Obrigatório</b></font><br>
-                       &nbsp;&emsp;&nbsp;&emsp;&emsp; <b>quantidadeProduto</b>: Quantidade do produto incluído no combo. &rArr; <font color='red'><b>Obrigatório</b></font><br>
+                         
 
 ",
          Tags = new[] { "Pedidos" }
      )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PostCliente([FromBody] PostPedidoRequest filtro)
+        public async Task<IActionResult> PostPedido([FromBody] PostPedidoRequest filtro)
         {
-            return Ok();
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var rtn = await _pedidoService.PostPedidos(filtro);
+                return CreatedAtAction(nameof(PostPedido), new { id = rtn.IdPedido }, rtn);
+            }
+            catch (CustomValidationException ex)
+            {
+                var errorResponse = ex.Error;
+                return StatusCode(412, errorResponse);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado.");
+            }
         }
+        
         #endregion
 
         #region PATCH/pedidos/{idPedido}

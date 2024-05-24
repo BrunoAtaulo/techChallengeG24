@@ -11,11 +11,12 @@ namespace Infra.DataBase.InMemory
     {
         public static void AddDataBaseInMemoryModule(this IServiceCollection services)
         {
-
             services.AddScoped<IClienteRepository, ClientesRepository>();
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IFakeCheckoutService, FakeCheckoutService>();
             services.AddScoped<IFakeCheckoutRepository, FakeCheckoutRepository>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<IPedidoService, PedidoService>();
         }
     }
 }

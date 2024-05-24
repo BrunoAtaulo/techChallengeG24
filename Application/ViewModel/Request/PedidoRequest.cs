@@ -8,12 +8,7 @@ namespace Application.ViewModel.Request
         public int IdCliente { get; set; }
         public int IdPedido { get; set; }
         public EnumPedidoStatus? PedidoStatus { get; set; }
-
         public EnumPedidoPagamento? PedidoPagamento { get; set; }
-
         public DateTime DataPedido { get; set; }
-
-
-
     }
 }

@@ -19,7 +19,6 @@ namespace Application.ViewModel.Response
 
         public DateTime DataPedido { get; set; }
 
-        public decimal ValorTotal { get; set; }
 
     }
 }

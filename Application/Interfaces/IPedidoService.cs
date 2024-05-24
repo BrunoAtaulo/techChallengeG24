@@ -9,7 +9,7 @@ namespace Application.Interfaces{
     public interface IPedidoService{
         Task<PedidoByIdResponse> PostPedidos(PostPedidoRequest filtro);
 
-        Task<IList<PedidoResponse>> GetPedidosAsync(PedidoRequest filtro);
+        Task<PedidoResponse> GetPedidosAsync(PedidoRequest filtro);
 
         Task<bool> UpdatePedidoStatusAsync(int idPedido, EnumPedidoStatus pedidoStatus);
     }

@@ -8,7 +8,7 @@ namespace Domain.Interfaces{
     public interface IPedidoRepository{
          Task PostPedido(Pedido pedido);
 
-        Task<Pedido> GetPedidos(int id);
+      //  Task<Pedido> GetPedidos(int id);
        
 
         Task<Pedido> GetPedidoByIdAsync(int idPedido);

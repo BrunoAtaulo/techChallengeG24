@@ -2,15 +2,11 @@
 using Application.Services;
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
-using Domain.Base;
-using Domain.Entities;
-using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static Application.Services.PedidoService;
 
 
 

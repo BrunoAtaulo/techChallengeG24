@@ -2,7 +2,7 @@
 -- Inserir dados na tabela Clientes
 INSERT INTO Clientes (Cpf, Nome, SobreNome, Email, NomeSocial, DataCadastro)
 VALUES
-('12345678909', 'Joao', 'Silva', 'joao.silva1@example.com', 'João S.', GETDATE()),
+('12345678909', 'Joao', 'Silva', 'joao.silva1@example.com', 'Joao S.', GETDATE()),
 ('23456789012', 'Maria', 'Lima', 'maria.lima2@example.com', 'Maria L.', GETDATE()),
 ('34567890123', 'Carlos', 'Santos', 'carlos.santos3@example.com', 'Carlos S.', GETDATE()),
 ('45678901234', 'Ana', 'Souza', 'ana.souza4@example.com', 'Ana S.', GETDATE()),
@@ -58,39 +58,39 @@ VALUES
 (1, 'Chicken Nuggets', 5.50, 1, 8),
 (1, 'Hot Dog', 4.00, 1, 9),
 (1, 'BBQ Burger', 9.25, 1, 10),
--- Bebidas
-(2, 'Coca-Cola', 3.00, 1, 1),
-(2, 'Pepsi', 3.00, 1, 2),
-(2, 'Sprite', 3.00, 1, 3),
-(2, 'Fanta', 3.00, 1, 4),
-(2, 'Água Mineral', 2.00, 1, 5),
-(2, 'Suco de Laranja', 4.00, 1, 6),
-(2, 'Chá Gelado', 3.50, 1, 7),
-(2, 'Café', 2.50, 1, 8),
-(2, 'Milkshake', 5.00, 1, 9),
-(2, 'Cerveja', 6.00, 1, 10),
--- Sobremesas
-(3, 'Sorvete', 3.50, 1, 1),
-(3, 'Torta de Maçã', 4.00, 1, 2),
-(3, 'Brownie', 4.50, 1, 3),
-(3, 'Mousse de Chocolate', 5.00, 1, 4),
-(3, 'Pudim', 3.50, 1, 5),
-(3, 'Cheesecake', 5.50, 1, 6),
-(3, 'Petit Gâteau', 6.00, 1, 7),
-(3, 'Cupcake', 3.00, 1, 8),
-(3, 'Milkshake de Morango', 5.00, 1, 9),
-(3, 'Banana Split', 6.50, 1, 10),
 -- Acompanhamentos
-(4, 'Batata Frita', 3.50, 1, 1),
-(4, 'Onion Rings', 4.00, 1, 2),
-(4, 'Salada', 5.00, 1, 3),
-(4, 'Mozzarella Sticks', 5.50, 1, 4),
-(4, 'Coleslaw', 3.00, 1, 5),
-(4, 'Chicken Wings', 7.00, 1, 6),
-(4, 'Nachos', 6.50, 1, 7),
-(4, 'Quesadilla', 6.00, 1, 8),
-(4, 'Pão de Alho', 4.00, 1, 9),
-(4, 'Bruschetta', 5.50, 1, 10);
+(2, 'Batata Frita', 3.50, 1, 1),
+(2, 'Onion Rings', 4.00, 1, 2),
+(2, 'Salada', 5.00, 1, 3),
+(2, 'Mozzarella Sticks', 5.50, 1, 4),
+(2, 'Coleslaw', 3.00, 1, 5),
+(2, 'Chicken Wings', 7.00, 1, 6),
+(2, 'Nachos', 6.50, 1, 7),
+(2, 'Quesadilla', 6.00, 1, 8),
+(2, 'Pao de Alho', 4.00, 1, 9),
+(2, 'Bruschetta', 5.50, 1, 10),
+-- Bebidas
+(3, 'Coca-Cola', 3.00, 1, 1),
+(3, 'Pepsi', 3.00, 1, 2),
+(3, 'Sprite', 3.00, 1, 3),
+(3, 'Fanta', 3.00, 1, 4),
+(3, 'agua Mineral', 2.00, 1, 5),
+(3, 'Suco de Laranja', 4.00, 1, 6),
+(3, 'Cha Gelado', 3.50, 1, 7),
+(3, 'Cafe', 2.50, 1, 8),
+(3, 'Milkshake', 5.00, 1, 9),
+(3, 'Cerveja', 6.00, 1, 10),
+-- Sobremesas
+(4, 'Sorvete', 3.50, 1, 1),
+(4, 'Torta de Maca', 4.00, 1, 2),
+(4, 'Brownie', 4.50, 1, 3),
+(4, 'Mousse de Chocolate', 5.00, 1, 4),
+(4, 'Pudim', 3.50, 1, 5),
+(4, 'Cheesecake', 5.50, 1, 6),
+(4, 'Petit Gateau', 6.00, 1, 7),
+(4, 'Cupcake', 3.00, 1, 8),
+(4, 'Milkshake de Morango', 5.00, 1, 9),
+(4, 'Banana Split', 6.50, 1, 10);
 GO
 
 -- Inserir dados na tabela Checkout
@@ -121,7 +121,7 @@ VALUES
 (8, 8),
 (9, 9),
 (10, 10),
-(11, 1), -- Adicionando bebidas aos combos
+(11, 1),
 (12, 2),
 (13, 3),
 (14, 4),
@@ -131,7 +131,7 @@ VALUES
 (18, 8),
 (19, 9),
 (20, 10),
-(21, 1), -- Adicionando sobremesas aos combos
+(21, 1),
 (22, 2),
 (23, 3),
 (24, 4),
@@ -141,7 +141,7 @@ VALUES
 (28, 8),
 (29, 9),
 (30, 10),
-(31, 1), -- Adicionando acompanhamentos aos combos
+(31, 1),
 (32, 2),
 (33, 3),
 (34, 4),
@@ -166,7 +166,7 @@ VALUES
 (1, 8, 8, 8),
 (2, 9, 9, 9),
 (1, 10, 10, 10),
-(1, 11, 1, 1), -- Adicionando bebidas aos pedidos
+(1, 11, 1, 1),
 (1, 12, 2, 2),
 (1, 13, 3, 3);
 

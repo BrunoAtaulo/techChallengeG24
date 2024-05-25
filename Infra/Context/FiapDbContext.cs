@@ -27,7 +27,7 @@ namespace Infra.Context
 
         public DbSet<ComboProduto> ComboProdutos { get; set; }
 
-        public DbSet<FakeCheckout> Checkout { get; set; }
+
 
 
         //protected override void OnConfiguring(DbContextOptionsBuilder options)

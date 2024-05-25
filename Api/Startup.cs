@@ -88,6 +88,7 @@ namespace Api
                 config.SwaggerEndpoint("/api/v1/swagger.json", "API LancheRapido v1");
                 config.RoutePrefix = "swagger";
             });
+            
 
             app.UseEndpoints(endpoints =>
             {

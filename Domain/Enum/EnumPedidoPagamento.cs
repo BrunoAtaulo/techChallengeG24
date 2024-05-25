@@ -7,8 +7,8 @@ namespace Domain.Base
         [Description("1 - Pendente")]
         Pendente = 1,
 
-        [Description("2 - Aprovado")]
-        Aprovado = 2,
+        [Description("2 - Pago")]
+        Pago = 2,
 
         [Description("3 - Cancelado")]
         Cancelado = 3

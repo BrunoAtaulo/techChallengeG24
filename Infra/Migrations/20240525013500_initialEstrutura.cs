@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class initialData : Migration
+    public partial class initialEstrutura : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -88,26 +88,6 @@ namespace Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Checkout",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProdutoId = table.Column<int>(type: "int", nullable: true),
-                    Quantidade = table.Column<int>(type: "int", nullable: false),
-                    NomeCliente = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Checkout", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Checkout_Produtos_ProdutoId",
-                        column: x => x.ProdutoId,
-                        principalTable: "Produtos",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ComboProdutos",
                 columns: table => new
                 {
@@ -167,11 +147,6 @@ namespace Infra.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Checkout_ProdutoId",
-                table: "Checkout",
-                column: "ProdutoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ComboProdutos_ComboId",
                 table: "ComboProdutos",
                 column: "ComboId");
@@ -210,9 +185,6 @@ namespace Infra.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Checkout");
-
             migrationBuilder.DropTable(
                 name: "ComboProdutos");
 

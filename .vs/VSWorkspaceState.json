@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Api",
+    "\\Api\\Controllers"
   ],
-  "SelectedNode": "\\POS_Tec_Challenge_Grupo_24.sln",
+  "SelectedNode": "\\Api\\Controllers\\ProdutosController.cs",
   "PreviewInSolutionExplorer": false
 }

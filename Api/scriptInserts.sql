@@ -93,20 +93,6 @@ VALUES
 (4, 'Bruschetta', 5.50, 1, 10);
 GO
 
--- Inserir dados na tabela Checkout
-INSERT INTO Checkout (ProdutoId, Quantidade, NomeCliente)
-VALUES
-(1, 2, 'Joao Silva'),
-(2, 1, 'Maria Lima'),
-(3, 3, 'Carlos Santos'),
-(4, 1, 'Ana Souza'),
-(5, 2, 'Pedro Almeida'),
-(6, 1, 'Lucia Ferreira'),
-(7, 3, 'Marcos Rocha'),
-(8, 1, 'Paula Mendes'),
-(9, 2, 'Rafael Costa'),
-(10, 1, 'Beatriz Barbosa');
-GO
 
 -- Inserir dados na tabela ComboProdutos
 INSERT INTO ComboProdutos (ProdutoId, ComboId)

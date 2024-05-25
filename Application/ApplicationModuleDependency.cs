@@ -11,7 +11,7 @@ namespace Application
             services.AddTransient<IProdutosService, ProdutosService>();
             services.AddTransient<IPedidoService, PedidoService>();
             services.AddTransient<IClienteService, ClienteService>();
-            services.AddTransient<IFakeCheckoutService, FakeCheckoutService>();
+            
 
         }
     }

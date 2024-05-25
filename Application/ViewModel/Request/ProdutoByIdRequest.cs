@@ -5,12 +5,12 @@ namespace Application.ViewModel.Request
 {
     public class ProdutoByIdRequest : IValidatableObject
     {
-        public int IdProduto { get; set; }
+        public int idProduto { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
 
-            if (IdProduto <= 0)
+            if (idProduto <= 0)
                 yield return new ValidationResult("Id do produto é obrigatório", new string[] { "IdProduto" });
         }
 

@@ -7,7 +7,7 @@ using System;
 namespace Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class scriptInserts : Migration
+    public partial class initialData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,8 +20,6 @@ namespace Infra.Migrations
                 migrationBuilder.Sql(sqlScript);
                 Console.WriteLine("Script Inicial Realizado com sucesso");
             }
-            
-
         }
 
         /// <inheritdoc />

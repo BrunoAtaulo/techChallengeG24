@@ -1,23 +1,39 @@
 {
   "profiles": {
+    "DEV": {
+      "commandName": "IISExpress",
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:6004/",
+      "environmentVariables": {
+        "DATABASE": "Data Source=localhost,1433;Initial Catalog=LancheRapidoBD;User ID=SA;Password=Pa55w0rd2021;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
+      }
+    },
     "Container (Dockerfile)": {
       "commandName": "Docker",
       "launchBrowser": false,
-      "launchUrl": "http://localhost:6004",
+      "launchUrl": "http://localhost:6005",
       "environmentVariables": {
-        "ASPNETCORE_HTTP_PORTS": "8080",
         "DATABASE": "Data Source=host.docker.internal,1433;Initial Catalog=LancheRapidoBD;User ID=SA;Password=Pa55w0rd2021;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
       },
-      "publishAllPorts": true
+      "publishAllPorts": false
     }
   },
-  "$schema": "http://json.schemastore.org/launchsettings.json",
+  //"$schema": "http://json.schemastore.org/launchsettings.json",
+  //"iisSettings": {
+  //  "windowsAuthentication": false,
+  //  "anonymousAuthentication": true
+  //  "iisExpress": {
+  //  //  //"applicationUrl": "http://localhost:5000",
+  //    //"sslPort": 5001
+  //  }
+  //}
+
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:5000",
-      "sslPort": 5001
+      "applicationUrl": "http://localhost:6004/",
+      "sslPort": 0
     }
   }
 }

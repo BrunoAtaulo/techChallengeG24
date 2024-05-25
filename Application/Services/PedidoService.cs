@@ -5,6 +5,8 @@ using Domain.Base;
 using Domain.Entities;
 using Domain.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Application.Services
@@ -24,63 +26,22 @@ namespace Application.Services
             _pedidoRepository = pedidoRepository;
         }
 
-        public async Task<PedidoByIdResponse> PostPedidos(PostPedidoRequest filtro)
+    
+        public async Task<IList<PedidoResponse>> GetPedidosAsync(PedidoRequest filtro)
         {
-
-
-            if (filtro == null)
-                throw new ArgumentNullException(nameof(filtro));
-
-            if (!DateTime.TryParseExact(filtro.DataPedido.ToString(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out var dataPedido))
-            {
-                throw new ArgumentException("Formato de data inválido. Use dd/MM/yyyy.");
-            }
-
-            var pedido = new Pedido(
-                filtro.IdCliente,
-                dataPedido,
-                (int)filtro.PedidoStatus.Value
-            );
-
-            await _pedidoRepository.PostPedido(pedido);
-
-            var response = new PedidoByIdResponse
-            {
-                IdPedido = pedido.Id
-            };
-
-            return response;
+            var lstPedidos = await _pedidoRepository.GetPedidosAsync(filtro.IdPedido, filtro.PedidoStatus, filtro.PedidoPagamento);
+            if (lstPedidos == null)
+                return null;
+            return lstPedidos.Select(s => new PedidoResponse(s)).ToList();
         }
 
 
-        public async Task<PedidoResponse> GetPedidosAsync(PedidoRequest filtro)
+        public async Task<bool> UpdatePedidoStatusAsync(PedidoIdRequest input)
         {
-            var pedidos = await _pedidoRepository.GetPedidoByIdAsync(filtro.IdPedido);
-            if (pedidos == null) return null;
-
-            return new PedidoResponse
-            {
-                IdCliente = pedidos.ClienteId,
-                IdPedido = pedidos.Id,
-                DataPedido = pedidos.DataPedido,
-                PedidoStatus = (EnumPedidoStatus?)pedidos.PedidoStatusId,
-                PedidoPagamento = (EnumPedidoPagamento?)pedidos.PedidoPagamentoId
-
-            };
-        }
-
-
-        public async Task<bool> UpdatePedidoStatusAsync(int idPedido, EnumPedidoStatus pedidoStatus)
-        {
-            var pedido = await _pedidoRepository.GetPedidoByIdAsync(idPedido);
+            var pedido = await _pedidoRepository.GetPedidosByIdAsync(input.idPedido);
             if (pedido == null)
-            {
                 return false;
-            }
-
-
-
-            pedido.PedidoStatusId = (int)pedidoStatus;
+            pedido.PedidoPagamentoId = (int)EnumPedidoPagamento.Pago;
             return await _pedidoRepository.UpdatePedidoAsync(pedido);
         }
     }

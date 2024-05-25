@@ -16,40 +16,30 @@ namespace Infra.Repositories
         {
             _context = context;
         }
-
-        public async Task PostPedido(Pedido pedido)
-        {
-            await _context.Pedidos.AddAsync(pedido);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<IList<Pedido>> GetPedidosAsync(int idPedido, EnumPedidoStatus? pedidoStatus, EnumPedidoPagamento? pedidoPagamento)
+        public async Task<IList<Pedido>> GetPedidosAsync(int? idPedido, EnumPedidoStatus? pedidoStatus, EnumPedidoPagamento? pedidoPagamento)
         {
             var query = _context.Pedidos.AsQueryable();
 
-            query = query.Where(p => p.Id == idPedido);
+            if(idPedido.HasValue)
+                query = query.Where(p => p.Id == idPedido);
 
             if (pedidoStatus.HasValue)
-            {
                 query = query.Where(p => p.PedidoStatusId == (int)pedidoStatus.Value);
-            }
-
+            
             if (pedidoPagamento.HasValue)
-            {
                 query = query.Where(p => p.PedidoPagamentoId == (int)pedidoPagamento.Value);
-            }
-
-
-
+            
             return await query.ToListAsync();
         }
 
-
-        public async Task<Pedido> GetPedidoByIdAsync(int idPedido)
+        public async Task<Pedido> GetPedidosByIdAsync(int idPedido)
         {
-            return await _context.Pedidos.FindAsync(idPedido);
-        }
+            var query = _context.Pedidos.AsQueryable();
 
+                query = query.Where(p => p.Id == idPedido);
+
+            return await query.FirstOrDefaultAsync();
+        }
         public async Task<bool> UpdatePedidoAsync(Pedido pedido)
         {
             _context.Pedidos.Update(pedido);

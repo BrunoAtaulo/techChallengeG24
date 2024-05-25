@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(FiapDbContext))]
-    [Migration("20240524221633_initialData")]
+    [Migration("20240525013520_initialData")]
     partial class initialData
     {
         /// <inheritdoc />
@@ -99,31 +99,6 @@ namespace Infra.Migrations
                     b.HasIndex("ProdutoId");
 
                     b.ToTable("ComboProdutos");
-                });
-
-            modelBuilder.Entity("Domain.Entities.FakeCheckout", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("NomeCliente")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<int?>("ProdutoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProdutoId");
-
-                    b.ToTable("Checkout");
                 });
 
             modelBuilder.Entity("Domain.Entities.Pedido", b =>
@@ -234,15 +209,6 @@ namespace Infra.Migrations
                         .IsRequired();
 
                     b.Navigation("Combo");
-
-                    b.Navigation("Produto");
-                });
-
-            modelBuilder.Entity("Domain.Entities.FakeCheckout", b =>
-                {
-                    b.HasOne("Domain.Entities.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("ProdutoId");
 
                     b.Navigation("Produto");
                 });

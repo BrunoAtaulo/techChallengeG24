@@ -2,6 +2,7 @@ using Application.Interfaces;
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
 using Domain.Base;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Threading.Tasks;
@@ -84,14 +85,15 @@ namespace Api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _produtosService.PostProduto(input);
-            return Created();
+            var rtn = await _produtosService.PostProduto(input);
+            return new ObjectResult(rtn) { StatusCode = StatusCodes.Status201Created };
+
 
         }
         #endregion
 
         #region PATCH/produtos/{idProduto}
-        [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.")]
+        [SwaggerResponse(200, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.")]
         [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
         [SwaggerResponse(401, "Requisição requer autenticação do usuário!")]
         [SwaggerResponse(403, "Privilégios insuficientes!")]
@@ -116,12 +118,12 @@ namespace Api.Controllers
    Tags = new[] { "Produtos" }
 )]
         [Consumes("application/json")]
-        public async Task<IActionResult> PatchCliente([FromRoute] ProdutoByIdRequest idProduto, [FromBody] PatchProdutoRequest input)
+        public async Task<IActionResult> PatchCliente([FromRoute] ProdutoByIdRequest inputRoute, [FromBody] PatchProdutoRequest input)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _produtosService.UpdateProdutoById(idProduto, input);
+            await _produtosService.UpdateProdutoById(inputRoute, input);
             return Ok();
         }
         #endregion

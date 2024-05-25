@@ -39,7 +39,9 @@ namespace Application.Services
             var pedido = new Pedido(
                 filtro.IdCliente,
                 dataPedido,
-                (int)filtro.PedidoStatus.Value
+                (int)filtro.PedidoStatus.Value,
+                 (int)filtro.PedidoPagamento.Value
+
             );
 
             await _pedidoRepository.PostPedido(pedido);

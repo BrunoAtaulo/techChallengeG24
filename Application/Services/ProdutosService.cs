@@ -27,7 +27,7 @@ namespace Application.Services
 
             return new ProdutoByIdRequest
             {
-                IdProduto = item.Id
+                idProduto = item.Id
             };
         }
 
@@ -64,7 +64,7 @@ namespace Application.Services
         #region Uteis
         private async Task<Produto> ValidProduto(ProdutoByIdRequest produtoId)
         {
-            var itemProduto = await _repository.GetProdutoById(produtoId.IdProduto);
+            var itemProduto = await _repository.GetProdutoById(produtoId.idProduto);
             if (itemProduto is null)
                 throw new CustomValidationException("Produto não encontrado");
             return itemProduto;

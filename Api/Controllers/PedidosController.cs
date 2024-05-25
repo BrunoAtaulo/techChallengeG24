@@ -93,7 +93,11 @@ namespace Api.Controllers
                              <strong> 2 = </strong> Em preparação<br/>
                              <strong> 3 = </strong>  Pronto<br/>
                              <strong> 4 = </strong> Finalizado   
-                         
+                          &bull; <b>pedidoPagamento</b>: Status atual do pagamento. &rArr; <font color='red'><b>Obrigatório</b></font><br>
+                             <strong> 1 = </strong> Pendente<br/>
+                             <strong> 2 = </strong> Aprovado<br/>
+                             <strong> 3 = </strong>  Cancelado<br/>
+                               
 
 ",
          Tags = new[] { "Pedidos" }

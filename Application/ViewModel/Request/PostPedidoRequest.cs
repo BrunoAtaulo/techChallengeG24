@@ -13,6 +13,8 @@ namespace Application.ViewModel.Request
 
         public EnumPedidoStatus? PedidoStatus { get; set; }
 
+        public EnumPedidoPagamento? PedidoPagamento { get; set; }
+
         //public List<ComboRequest> ComboPedido { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -35,6 +37,13 @@ namespace Application.ViewModel.Request
                 );
             }
 
+            if (!PedidoPagamento.HasValue)
+            {
+                yield return new ValidationResult(
+                    "O status do pagamento é obrigatório.",
+                    new[] { nameof(PedidoPagamento) }
+                );
+            }
 
             if (string.IsNullOrEmpty(DataPedido))
             {

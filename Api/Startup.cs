@@ -49,8 +49,10 @@ namespace Api
 
 
             var connectionsString = Environment.GetEnvironmentVariable("DATABASE");
-            //Console.WriteLine("bd");
-            //Console.WriteLine(connectionsString);
+            
+            Console.WriteLine("bd");
+            Console.WriteLine(connectionsString);
+
             services.AddDbContext<FiapDbContext>(options =>
             {
                 options.UseSqlServer(

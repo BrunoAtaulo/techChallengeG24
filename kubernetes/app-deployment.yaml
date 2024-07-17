@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: cesarmoroni1/sapi:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 55m
+            memory: 100Mi
+          limits:
+            cpu: 150m
+            memory: 300Mi
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: ASPNETCORE_ENVIRONMENT
+        - name: ASPNETCORE_URLS
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: ASPNETCORE_URLS
+        - name: MERCADO_PAGO_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MERCADO_PAGO_BASE_URL
+        - name: MERCADO_PAGO_CRIAR_QR_ORDER_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MERCADO_PAGO_CRIAR_QR_ORDER_PATH
+        - name: MERCADO_PAGO_CONSULTAR_QR_ORDER_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MERCADO_PAGO_CONSULTAR_QR_ORDER_PATH
+        - name: MERCADO_PAGO_AUTHORIZATION
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MERCADO_PAGO_AUTHORIZATION
+        - name: MERCADO_PAGO_SPONSOR_ID
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MERCADO_PAGO_SPONSOR_ID
+        # - name: WEBHOOK_ENDPOINT
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: app-config
+        #       key: WEBHOOK_ENDPOINT
+        - name: DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: DATABASE
+  selector:
+    matchLabels:
+      app: app

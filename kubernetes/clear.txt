@@ -1,0 +1,14 @@
+kubectl delete service app
+kubectl delete configmap app-config
+kubectl delete deployment app
+kubectl delete hpa app
+kubectl delete secret app-secrets
+kubectl delete configmap sqlserver-config
+kubectl delete service sqlserver
+kubectl delete Deployment sqlserver
+kubectl delete PersistentVolumeClaim sqlserver
+kubectl delete PersistentVolume sqlserver
+kubectl delete secret sqlserver-secrets
+
+
+

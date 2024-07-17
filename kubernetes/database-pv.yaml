@@ -1,0 +1,16 @@
+#------------------database-pv.yaml------------------------
+# O PersistentVolume (PV) fornece armazenamento persistente no Kubernetes, 
+#  independentemente do ciclo de vida dos pods, permitindo que os dados permaneçam 
+# intactos mesmo quando os pods são recriados ou removidos.
+# --------------------------------------------------
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sqlserver
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"

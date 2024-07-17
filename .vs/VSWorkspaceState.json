@@ -2,12 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Api",
-    "\\Api\\Controllers"
+    "\\Api\\Properties",
+    "\\kube2",
+    "\\kubernetes"
   ],
-<<<<<<< HEAD
-  "SelectedNode": "\\Api\\Controllers\\ProdutosController.cs",
-=======
-  "SelectedNode": "\\C:\\Users\\fedz\\Source\\Repos\\techChallengeG24",
->>>>>>> 4d9ca190948e73e7013bcf9dc683b793152f7547
+  "SelectedNode": "\\.dockerignore",
   "PreviewInSolutionExplorer": false
 }

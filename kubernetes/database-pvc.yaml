@@ -1,0 +1,17 @@
+#------------------database-pvc.yaml------------------------
+# O PersistentVolumeClaim (PVC) é uma solicitação de armazenamento persistente feita por um usuário. 
+# Ele permite que um pod utilize um PersistentVolume (PV). 
+# O PVC assegura que o volume solicitado atenda às necessidades de armazenamento 
+# do pod e pode ser vinculado a um PV existente.
+# --------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sqlserver
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+    #storageClassName: default-storageclass

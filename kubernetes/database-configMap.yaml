@@ -1,0 +1,13 @@
+#------------------database-configMap.yaml------------------------
+# O ConfigMap serve para armazenar dados de configuração não confidenciais em pares chave-valor, 
+# permitindo que aplicativos Kubernetes utilizem essas configurações de forma centralizada e flexível, 
+# sem necessidade de modificar imagens de contêiner.
+# --------------------------------------------------
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sqlserver-config
+data:
+  DB_HOST: "localhost"
+  DB_PORT: "1433"
+  DB_NAME: "mydatabase"

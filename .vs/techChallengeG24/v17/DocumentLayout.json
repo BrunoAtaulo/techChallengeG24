@@ -1,17 +1,46 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "WorkspaceRootPath": "C:\\Users\\crpn\\source\\Pos_Repos_Final\\techChallengeG24\\",
+  "WorkspaceRootPath": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\Pos_Repos_Final\\techChallengeG24\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-=======
-  "WorkspaceRootPath": "C:\\Users\\fedz\\source\\repos\\techChallengeG24\\",
-  "Documents": [
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\app-deployment.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\app-deployment.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fedz\\source\\repos\\techChallengeG24\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
->>>>>>> 4d9ca190948e73e7013bcf9dc683b793152f7547
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\cmd_init.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\cmd_init.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\app-configmap.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\app-configmap.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\Api\\Startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Api\\Startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-service.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\database-service.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\Source\\pos\\techChallengeG24\\kubernetes\\app-service.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\app-service.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-statefulset.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\database-statefulset.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\clear.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\clear.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\crpn\\Source\\pos\\techChallengeG24\\kubernetes\\database-configMap.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kubernetes\\database-configMap.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": 32,
+          "SelectedChildIndex": 34,
           "Children": [
             {
               "$type": "Bookmark",
@@ -125,11 +154,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
-            },
-            {
-<<<<<<< HEAD
-              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
@@ -153,29 +177,137 @@
               "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\crpn\\source\\Pos_Repos_Final\\techChallengeG24\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Users\\crpn\\source\\Pos_Repos_Final\\techChallengeG24\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-05-24T23:19:38.748Z",
-=======
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\fedz\\source\\repos\\techChallengeG24\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Users\\fedz\\source\\repos\\techChallengeG24\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAqwBUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-05-24T23:15:53.849Z",
->>>>>>> 4d9ca190948e73e7013bcf9dc683b793152f7547
+              "DocumentIndex": 3,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\Api\\Startup.cs",
+              "RelativeDocumentMoniker": "Api\\Startup.cs",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\Api\\Startup.cs",
+              "RelativeToolTip": "Api\\Startup.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADIAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-15T02:17:39.128Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\Api\\Program.cs",
+              "RelativeDocumentMoniker": "Api\\Program.cs",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\Api\\Program.cs",
+              "RelativeToolTip": "Api\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-15T02:17:36.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "app-deployment.yaml",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\app-deployment.yaml",
+              "RelativeDocumentMoniker": "kubernetes\\app-deployment.yaml",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\app-deployment.yaml",
+              "RelativeToolTip": "kubernetes\\app-deployment.yaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-07-15T02:04:13.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "app-service.yaml",
+              "DocumentMoniker": "C:\\Users\\crpn\\Source\\pos\\techChallengeG24\\kubernetes\\app-service.yaml",
+              "RelativeDocumentMoniker": "kubernetes\\app-service.yaml",
+              "ToolTip": "C:\\Users\\crpn\\Source\\pos\\techChallengeG24\\kubernetes\\app-service.yaml",
+              "RelativeToolTip": "kubernetes\\app-service.yaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-07-15T02:03:48.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "app-configmap.yaml",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\app-configmap.yaml",
+              "RelativeDocumentMoniker": "kubernetes\\app-configmap.yaml",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\app-configmap.yaml",
+              "RelativeToolTip": "kubernetes\\app-configmap.yaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-07-15T02:03:47.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "database-service.yaml",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-service.yaml",
+              "RelativeDocumentMoniker": "kubernetes\\database-service.yaml",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-service.yaml",
+              "RelativeToolTip": "kubernetes\\database-service.yaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-07-15T01:50:18.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "database-statefulset.yaml",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-statefulset.yaml",
+              "RelativeDocumentMoniker": "kubernetes\\database-statefulset.yaml",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-statefulset.yaml",
+              "RelativeToolTip": "kubernetes\\database-statefulset.yaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-07-15T01:34:06.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "clear.txt",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\clear.txt",
+              "RelativeDocumentMoniker": "kubernetes\\clear.txt",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\clear.txt",
+              "RelativeToolTip": "kubernetes\\clear.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-07-15T01:33:22.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "cmd_init.txt",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\cmd_init.txt",
+              "RelativeDocumentMoniker": "kubernetes\\cmd_init.txt",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\cmd_init.txt",
+              "RelativeToolTip": "kubernetes\\cmd_init.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-07-15T01:27:30.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "database-configMap.yaml",
+              "DocumentMoniker": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-configMap.yaml",
+              "RelativeDocumentMoniker": "kubernetes\\database-configMap.yaml",
+              "ToolTip": "C:\\Users\\crpn\\source\\pos\\techChallengeG24\\kubernetes\\database-configMap.yaml",
+              "RelativeToolTip": "kubernetes\\database-configMap.yaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-07-12T17:28:21.814Z"
             }
           ]
         },
@@ -189,15 +321,15 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",

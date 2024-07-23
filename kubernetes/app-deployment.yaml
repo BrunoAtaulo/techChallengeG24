@@ -16,11 +16,11 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 55m
+            cpu: 40m
             memory: 100Mi
           limits:
-            cpu: 150m
-            memory: 300Mi
+            cpu: 60m
+            memory: 150Mi
         env:
         - name: ASPNETCORE_ENVIRONMENT
           valueFrom:
@@ -57,11 +57,11 @@ spec:
             configMapKeyRef:
               name: app-config
               key: MERCADO_PAGO_SPONSOR_ID
-        # - name: WEBHOOK_ENDPOINT
-        #   valueFrom:
-        #     configMapKeyRef:
-        #       name: app-config
-        #       key: WEBHOOK_ENDPOINT
+        - name: WEBHOOK_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: WEBHOOK_ENDPOINT
         - name: DATABASE
           valueFrom:
             secretKeyRef:

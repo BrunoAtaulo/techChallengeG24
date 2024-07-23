@@ -12,7 +12,3 @@ kubectl apply -f app-service.yaml
 kubectl apply -f adminer-deployment.yaml
 kubectl apply -f adminer-service.yaml
 
-
-
-kubectl port-forward svc/adminer 8090:8080
-kubectl port-forward svc/app 8080:80

@@ -1,10 +1,15 @@
 comandos
-minikube tunnel
+
+--minikube tunnel
+minikube start
 minikube dashboard    
 
 apos rodar pods 
 
 kubectl port-forward svc/adminer 8090:8080
 kubectl port-forward svc/app 8080:80
+
+
+
 
 
